@@ -64,7 +64,7 @@
         "type": "function",
         "z": "821d2f5e77804562",
         "name": "admin",
-        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.trim().split(\" \")[1] + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/node-red-0.0.1.tg /home/root/node-red-0.0.1.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/node-red-0.0.1.tgz`})\n    } else {\n    }\n}, 1000);",
+        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.trim().split(\" \")[1] + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/node-red-0.0.1.tgz /home/root/node-red-0.0.1.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/node-red-0.0.1.tgz`})\n    } else {\n    }\n}, 1000);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -157,7 +157,6 @@
         "y": 140,
         "wires": [
             [
-                "ab18a1d20bfa7343",
                 "b055725d01c463dc"
             ]
         ]
@@ -189,7 +188,7 @@
         "type": "function",
         "z": "821d2f5e77804562",
         "name": "function 3",
-        "func": "if (msg.payload.length > 80000) {\n    setTimeout(function () {\n        node.send({ payload: `reboot` })\n    }, 1000);\n} else {\n}",
+        "func": "if (msg.payload.length > 60000) {\n    setTimeout(function () {\n        node.send({ payload: `reboot` })\n    }, 1000);\n} else {\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -261,21 +260,5 @@
                 "7daefadc0daf1022"
             ]
         ]
-    },
-    {
-        "id": "ab18a1d20bfa7343",
-        "type": "debug",
-        "z": "821d2f5e77804562",
-        "name": "debug 18",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 680,
-        "y": 160,
-        "wires": []
     }
 ]
