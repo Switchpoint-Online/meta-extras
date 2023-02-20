@@ -1,0 +1,2580 @@
+[
+    {
+        "id": "70d3ab8470d8a674",
+        "type": "tab",
+        "label": "setup",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d4bc3e2796f33eee",
+        "type": "tab",
+        "label": "Telemtry",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "796f3694.be8cf8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0056d6",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#a1c2f7",
+                "baseFont": "Lucida Sans Unicode,Lucida Grande,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0056d6",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#237cff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0056d6",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Hui Da Telemetrics",
+            "hideToolbar": "true",
+            "allowSwipe": "true",
+            "lockMenu": "true",
+            "allowTempTheme": "false",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "94d7b14d.94bdc",
+        "type": "ui_group",
+        "name": "Camera Configuration",
+        "tab": "513551d1.2dc26",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c0518aca.9c0518",
+        "type": "ui_group",
+        "name": "Device Setup",
+        "tab": "795bfc5c.427f54",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "795bfc5c.427f54",
+        "type": "ui_tab",
+        "name": "TDN Setup",
+        "icon": "tv",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "513551d1.2dc26",
+        "type": "ui_tab",
+        "name": "Camera Definition",
+        "icon": "camera",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "18e23b29.b97df5",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c0518aca.9c0518",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "344d75a0285c63b3",
+        "type": "ui_group",
+        "name": "Countdown",
+        "tab": "795bfc5c.427f54",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c1ff397180b1caab",
+        "type": "ui_group",
+        "name": "Options",
+        "tab": "513551d1.2dc26",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6c717d1947c575d3",
+        "type": "inject",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Camera_Definition_Options\",\"TDN_Setup_Countdown\"],\"show\":[\"TDN_Setup_Device_Setup\"]}}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "4b2fd22d7560dd1d",
+                "4595e96eeab2596a",
+                "2aed0cadca1db16f"
+            ]
+        ]
+    },
+    {
+        "id": "33c0e006cc38150a",
+        "type": "ui_text_input",
+        "z": "70d3ab8470d8a674",
+        "name": "IPv4",
+        "label": "IPv4 Address",
+        "tooltip": "",
+        "group": "94d7b14d.94bdc",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "str",
+        "x": 70,
+        "y": 480,
+        "wires": [
+            [
+                "b598410c2377c3d9"
+            ]
+        ]
+    },
+    {
+        "id": "c376ae3448576805",
+        "type": "ui_dropdown",
+        "z": "70d3ab8470d8a674",
+        "name": "Make",
+        "label": "Make ",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94d7b14d.94bdc",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "Select",
+                "type": "str"
+            },
+            {
+                "label": "Bosch",
+                "value": "Bosch",
+                "type": "str"
+            },
+            {
+                "label": "Hikvision",
+                "value": "Hikvision",
+                "type": "str"
+            },
+            {
+                "label": "Dahua",
+                "value": "Dahua",
+                "type": "str"
+            },
+            {
+                "label": "Cathexis",
+                "value": "Cathexis",
+                "type": "str"
+            },
+            {
+                "label": "Generic",
+                "value": "Generic",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 70,
+        "y": 620,
+        "wires": [
+            [
+                "3966cfee797a8871",
+                "d9521dd43f16c997"
+            ]
+        ]
+    },
+    {
+        "id": "3966cfee797a8871",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "var i = msg.payload;\nif (i === \"Bosch\") {\n    msg.enabled = true\n    global.set('camera.make', \"Bosch\")\n    global.set('camera.char', 32)\n    msg.options = [\n        4,\n        6]\n    return msg;\n}\nif (i === \"Hikvision\") {\n    msg.enabled = true\n    global.set('camera.make', \"Hikvision\")\n    global.set('camera.char', 30)\n    msg.options = [\n        4]\n    return msg;\n}\nif (i === \"Dahua\") {\n    msg.enabled = true\n    global.set('camera.make', \"Dahua\")\n    global.set('camera.char', 22)\n    msg.options = [\n        5]\n    return msg;\n}\nif (i === \"Cathexis\") {\n    msg.enabled = true\n    global.set('camera.make', \"Cathexis\")\n    msg.options = [\n        \"Cathexis Vision CPOS\",\n        \"Cathexis Vision Counter\"]\n    return msg;\n}\nif (i === \"Generic\") {\n    msg.enabled = true\n    global.set('camera.make', \"Generic\")\n    msg.options = [\n        \"Generic CGI Instruction Set\"]\n    return msg;\n}\nif (i === \"Vivotek\") {\n    msg.enabled = true\n    global.set('camera.make', \"Vivotek\")\n    msg.options = [\n        1]\n    return msg;\n}\nelse {\n    msg.enabled = false\n    return msg;\n}\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 600,
+        "wires": [
+            [
+                "799defde457fc712"
+            ]
+        ]
+    },
+    {
+        "id": "799defde457fc712",
+        "type": "ui_dropdown",
+        "z": "70d3ab8470d8a674",
+        "name": "Model",
+        "label": "Model",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94d7b14d.94bdc",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 450,
+        "y": 600,
+        "wires": [
+            [
+                "5969b06692c5ba3a"
+            ]
+        ]
+    },
+    {
+        "id": "1144cec5c01823ae",
+        "type": "ui_text_input",
+        "z": "70d3ab8470d8a674",
+        "name": "Username",
+        "label": "Username",
+        "tooltip": "",
+        "group": "94d7b14d.94bdc",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "x": 90,
+        "y": 520,
+        "wires": [
+            [
+                "35029bb210049b05"
+            ]
+        ]
+    },
+    {
+        "id": "5fe11c189a7b4a33",
+        "type": "ui_text_input",
+        "z": "70d3ab8470d8a674",
+        "name": "Password",
+        "label": "Password",
+        "tooltip": "",
+        "group": "94d7b14d.94bdc",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "mode": "text",
+        "delay": 300,
+        "topic": "",
+        "x": 80,
+        "y": 560,
+        "wires": [
+            [
+                "a5a11e643904445d"
+            ]
+        ]
+    },
+    {
+        "id": "b598410c2377c3d9",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.ip',msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "35029bb210049b05",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.digestUser',msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a5a11e643904445d",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.digestPass',msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5969b06692c5ba3a",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.lines',msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "686278e0a89a22ba",
+        "type": "ui_button",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "group": "94d7b14d.94bdc",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Accept Changes",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 100,
+        "y": 780,
+        "wires": [
+            [
+                "3c5e98bd257dbc0b"
+            ]
+        ]
+    },
+    {
+        "id": "3c5e98bd257dbc0b",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "var i = global.get('camera')\nglobal.set('prod',i)\nmsg.payload = i\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 780,
+        "wires": [
+            [
+                "2dc75c6c841903a1"
+            ]
+        ]
+    },
+    {
+        "id": "ea2d291c5f100742",
+        "type": "file in",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "filename": "/home/root/.usrTemp",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 260,
+        "y": 240,
+        "wires": [
+            [
+                "3173668cb010d7cf"
+            ]
+        ]
+    },
+    {
+        "id": "2dc75c6c841903a1",
+        "type": "file",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "filename": "/home/root/.usrTemp",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 440,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3173668cb010d7cf",
+        "type": "json",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 430,
+        "y": 240,
+        "wires": [
+            [
+                "ebd0bf8fbf7a2de0",
+                "f89e0bb122aa307e"
+            ]
+        ]
+    },
+    {
+        "id": "ebd0bf8fbf7a2de0",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "Initialise",
+        "func": "global.set('camera',msg.payload);\nglobal.set('prod',global.get('camera'));\nmsg.payload = (global.get('prod'));\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "2998166950e85b25"
+            ]
+        ]
+    },
+    {
+        "id": "6c1202caf107bae7",
+        "type": "ui_form",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "label": "",
+        "group": "c0518aca.9c0518",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "IPv4 Address",
+                "value": "ipaddr",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Subnet Mask",
+                "value": "subnet",
+                "type": "text",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Gateway",
+                "value": "gateway",
+                "type": "text",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "ipaddr": "",
+            "subnet": "",
+            "gateway": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "className": "",
+        "x": 70,
+        "y": 420,
+        "wires": [
+            [
+                "808e224875500ceb"
+            ]
+        ]
+    },
+    {
+        "id": "f0c7baf752ba10b6",
+        "type": "ui_toast",
+        "z": "70d3ab8470d8a674",
+        "position": "dialog",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 1,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "75f0dc8900d99d1a"
+            ]
+        ]
+    },
+    {
+        "id": "808e224875500ceb",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "const regexExp = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;\nconst regexExp1 = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;\nconst regexExp2 = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;\nmsg.ip = msg.payload\nif (msg.payload.ipaddr !== \"\"){\n        if (msg.payload.subnet !== \"\"){\n                if (msg.payload.gateway !== \"\"){\n                    if (regexExp.test(msg.payload.ipaddr) && regexExp1.test(msg.payload.subnet) && regexExp2.test(msg.payload.gateway)){\n                        var prefix = \"\"\n                        for (const element of msg.payload.subnet.split('.')) {\n                                if (Number(element) != 0) {\n                                        var i = parseInt(element).toString(2)\n                                        var b = prefix += i\n                                }\n                        }\n                        var text = \"\"\n                        for (let i = 1; i <= b.length; i++) {\n                                text += i;\n                                var total = i\n                        }\n                        var i = `\nsource /etc/network/interfaces.d/*\nauto eth0\niface eth0 inet static\naddress 192.168.0.21\nnetmask 255.255.255.0\n\niface eth0 inet static\naddress `+ msg.payload.ipaddr + `/` + total + `\ngateway `+ msg.payload.gateway\n\nmsg.payload = `set IP address to `+msg.payload.ipaddr+` and reboot ?`\n                    }else {msg.payload = \"Invalid IP Format\"}\n                }else {msg.payload = \"No Gateway Defined\"}\n        }else {msg.payload = \"No Subnet Defined\"}\n}else {msg.payload = \"No IP Address Defined\"}\nreturn [msg,{\"payload\":i}];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "f0c7baf752ba10b6"
+            ],
+            [
+                "d916df65ac1add20"
+            ]
+        ]
+    },
+    {
+        "id": "75f0dc8900d99d1a",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "var timer = 3;\nif (msg.payload === \"OK\"){\n    async function delay(timeMs) {\n        await new Promise(resolve => setTimeout(resolve, timeMs));\n    }\n    let i = 3;\n    do {\n    await delay(1000);\n        node.send([null,{payload:i},{\"payload\":{\"group\":{\"show\":[\"TDN_Setup_Countdown\"],\"hide\":[\"TDN_Setup_Device_Setup\"],\"focus\":true}}}]);\n        i--;\n    }\n    while (i >= 0);\n    node.send([{\"payload\":\"Finished\"},{payload:0},{\"payload\":{\"group\":{\"hide\":[\"TDN_Setup_Countdown\"],\"show\":[\"TDN_Setup_Device_Setup\"]}}}]);\n}\nelse if (msg.payload === \"Cancel\"){\n    null\n}\nelse {node.error(\"No valid IP input\", msg);}",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 400,
+        "wires": [
+            [
+                "dd7ed4408ad10a4f"
+            ],
+            [
+                "6665dc1f9b428dca"
+            ],
+            [
+                "dcef484c179b6280"
+            ]
+        ]
+    },
+    {
+        "id": "ed6a9ebc778c866b",
+        "type": "ui_template",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "name": "",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    body {\n        background-image: url(\"/abstract.jpg\");  // file path\n        background-repeat: no-repeat;\n        background-size: cover;\n        background-position: bottom left;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "global",
+        "x": 120,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "93699ef48fb275b0",
+        "type": "ui_media",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "name": "",
+        "width": "6",
+        "height": "3",
+        "order": 1,
+        "category": "ui",
+        "file": "svs.jpg",
+        "layout": "center",
+        "showcontrols": true,
+        "loop": true,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 290,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b0a3494e88e76632",
+        "type": "ui_media",
+        "z": "70d3ab8470d8a674",
+        "group": "c0518aca.9c0518",
+        "name": "",
+        "width": "6",
+        "height": "3",
+        "order": 1,
+        "category": "ui",
+        "file": "svs.jpg",
+        "layout": "center",
+        "showcontrols": false,
+        "loop": false,
+        "onstart": false,
+        "scope": "local",
+        "tooltip": "",
+        "x": 410,
+        "y": 1100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d9521dd43f16c997",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "var i = msg.payload;\nif (i === \"Bosch\"){\n    return [{ \"enabled\": true }, { \"payload\": { \"group\": { \"show\": [\"Camera_Definition_Options\"] } } }]\n}\nelse {\n    return [{ \"enabled\": false },{\"payload\": { \"group\": { \"hide\": [\"Camera_Definition_Options\"] } } }]\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 640,
+        "wires": [
+            [
+                "046d35222ced9864"
+            ],
+            [
+                "7f6d4589de5687fd"
+            ]
+        ]
+    },
+    {
+        "id": "046d35222ced9864",
+        "type": "ui_form",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "label": "Options",
+        "group": "c1ff397180b1caab",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "X Position - 0 Default",
+                "value": "x",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Y Position - 0 Default",
+                "value": "y",
+                "type": "number",
+                "required": false,
+                "rows": null
+            },
+            {
+                "label": "Transparent Text",
+                "value": "trans",
+                "type": "checkbox",
+                "required": false,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "x": "",
+            "y": "",
+            "trans": false
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "className": "",
+        "x": 440,
+        "y": 640,
+        "wires": [
+            [
+                "4b6c86da2b18c981"
+            ]
+        ]
+    },
+    {
+        "id": "4b6c86da2b18c981",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.options',msg.payload)\nmsg.payload = \"options\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e2f33eabba4aa39f",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.exclusions', msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be3b5d3c1a7c8206",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "IPv4",
+        "format": "{{msg.payload.ip}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 330,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "7691939312d7fae0",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Username",
+        "format": "{{msg.payload.digestUser}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 350,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "653de7f5e2e813b5",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Password",
+        "format": "{{msg.payload.digestPass}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 340,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "26e44af1761a4032",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "94d7b14d.94bdc",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Model",
+        "format": "{{msg.payload.make}}",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "dc02f0ded5d87106",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "msg.payload = global.get('prod');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 160,
+        "y": 900,
+        "wires": [
+            [
+                "26e44af1761a4032",
+                "653de7f5e2e813b5",
+                "7691939312d7fae0",
+                "be3b5d3c1a7c8206"
+            ]
+        ]
+    },
+    {
+        "id": "f89e0bb122aa307e",
+        "type": "link out",
+        "z": "70d3ab8470d8a674",
+        "name": "IP-Address",
+        "mode": "link",
+        "links": [
+            "461ad33b79b53f7a",
+            "4c567f0f4364438f"
+        ],
+        "x": 555,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4b2fd22d7560dd1d",
+        "type": "file in",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "filename": "/home/root/.node-red/app/.SHA",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "f0d526fb003349e5"
+            ]
+        ]
+    },
+    {
+        "id": "f0d526fb003349e5",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "node.send(msg)\nvar i = msg.payload.split('\\n');\nvar b = [];\nfor (const element of i) {\n  b.push(element.trim());\n}\nglobal.set('SHA',b);\nmsg.payload = b\nnode.send(msg)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4595e96eeab2596a",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "ip addr | grep \"link/ether\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "ipaddr",
+        "x": 250,
+        "y": 120,
+        "wires": [
+            [
+                "ce4e60cd954ae1a9"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "ce4e60cd954ae1a9",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "admin",
+        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.trim().split(\" \")[1] + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({payload: `nmcli dev wifi connect Inkoos_2.4G password d15_muN9@13`})\n    } else {\n    }\n}, 1000);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "crypto",
+                "module": "crypto"
+            }
+        ],
+        "x": 390,
+        "y": 120,
+        "wires": [
+            [
+                "76973b73c337cc83"
+            ]
+        ]
+    },
+    {
+        "id": "5ffde9069b65a490",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "msg.payload = global.get('local');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 1020,
+        "wires": [
+            [
+                "5bce77f6ed1810f0",
+                "d20677ba57c1a705"
+            ]
+        ]
+    },
+    {
+        "id": "d20677ba57c1a705",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "c0518aca.9c0518",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "IPv4",
+        "format": "{{msg.payload.addr_info[0].local}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 330,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "5bce77f6ed1810f0",
+        "type": "ui_text",
+        "z": "70d3ab8470d8a674",
+        "group": "c0518aca.9c0518",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Subnet",
+        "format": "{{msg.payload.addr_info[0].prefixlen}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 330,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "dd7ed4408ad10a4f",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "/boot/reboot.sh",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 760,
+        "y": 380,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6665dc1f9b428dca",
+        "type": "ui_gauge",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "group": "344d75a0285c63b3",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "",
+        "label": "",
+        "format": "{{payload}}",
+        "min": "0",
+        "max": "3",
+        "colors": [
+            "#ca3838",
+            "#e6e600",
+            "#43cb3a"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "d916df65ac1add20",
+        "type": "file",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "filename": "/home/root/interfacesTemp",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 420,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dcef484c179b6280",
+        "type": "ui_ui_control",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "events": "all",
+        "x": 740,
+        "y": 480,
+        "wires": [
+            [
+                "2b1fd5f0a3d625e5"
+            ]
+        ]
+    },
+    {
+        "id": "188bb7fe13bd4419",
+        "type": "link in",
+        "z": "70d3ab8470d8a674",
+        "name": "link in 1",
+        "links": [
+            "2aed0cadca1db16f",
+            "7f6d4589de5687fd"
+        ],
+        "x": 575,
+        "y": 520,
+        "wires": [
+            [
+                "dcef484c179b6280"
+            ]
+        ]
+    },
+    {
+        "id": "2aed0cadca1db16f",
+        "type": "link out",
+        "z": "70d3ab8470d8a674",
+        "name": "link out 1",
+        "mode": "link",
+        "links": [
+            "188bb7fe13bd4419"
+        ],
+        "x": 205,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7f6d4589de5687fd",
+        "type": "link out",
+        "z": "70d3ab8470d8a674",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "188bb7fe13bd4419"
+        ],
+        "x": 395,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "d4682a7849898147",
+        "type": "ui_dropdown",
+        "z": "70d3ab8470d8a674",
+        "name": "Filter",
+        "label": "Filter",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94d7b14d.94bdc",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "",
+                "value": "Select",
+                "type": "str"
+            },
+            {
+                "label": "Micros",
+                "value": "micros",
+                "type": "str"
+            },
+            {
+                "label": "Kisan",
+                "value": "kisan",
+                "type": "str"
+            },
+            {
+                "label": "Galaxy Tickets",
+                "value": "galaxy",
+                "type": "str"
+            },
+            {
+                "label": "USB Printer",
+                "value": "usbpr",
+                "type": "str"
+            },
+            {
+                "label": "Locked",
+                "value": "locked",
+                "type": "str"
+            },
+            {
+                "label": "None",
+                "value": "none",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "",
+        "topicType": "str",
+        "className": "",
+        "x": 70,
+        "y": 700,
+        "wires": [
+            [
+                "b1d25f9d55887967"
+            ]
+        ]
+    },
+    {
+        "id": "b1d25f9d55887967",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "func": "global.set('camera.filter', msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2998166950e85b25",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "modprobe g_printer idVendor=0x04b8 idProduct=0x0e02 bcdDevice=\"256\" iManufacturer=\"EPSON\" iProduct=\"TM-T88V\" iSerialNum=\"405139460344080000\" iPNPstring=\"MFG:EPSON;CMD:ESC/POS;MDL:TM-T88V;CLS:PRINTER;DES:EPSON TM-T88V;CID:EpsonTM00000001;\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "modprobe",
+        "x": 700,
+        "y": 240,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5ab3cac95369e43e",
+        "type": "status",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "scope": [
+            "2998166950e85b25",
+            "4e7cad626fe55aa1"
+        ],
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "7948978fddaee3e9"
+            ]
+        ]
+    },
+    {
+        "id": "c529c6e4bbbdec34",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "function 1",
+        "func": "if (msg.status.source.name === \"modprobe\") {\n    if (msg.status.fill) {\n        return msg;\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 320,
+        "wires": [
+            [
+                "4e7cad626fe55aa1"
+            ]
+        ]
+    },
+    {
+        "id": "4e7cad626fe55aa1",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "/home/root/.node-red/app/printer_minimal",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "true",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "printer_minimal",
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7948978fddaee3e9",
+        "type": "trigger",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "1",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "c529c6e4bbbdec34"
+            ]
+        ]
+    },
+    {
+        "id": "144bbe5d860de56f",
+        "type": "link in",
+        "z": "70d3ab8470d8a674",
+        "name": "link in 4",
+        "links": [
+            "2b1fd5f0a3d625e5"
+        ],
+        "x": 35,
+        "y": 960,
+        "wires": [
+            [
+                "dc02f0ded5d87106",
+                "5ffde9069b65a490"
+            ]
+        ]
+    },
+    {
+        "id": "2b1fd5f0a3d625e5",
+        "type": "link out",
+        "z": "70d3ab8470d8a674",
+        "name": "UI Control",
+        "mode": "link",
+        "links": [
+            "144bbe5d860de56f"
+        ],
+        "x": 835,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "e79d91a157939042",
+        "type": "catch",
+        "z": "70d3ab8470d8a674",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 80,
+        "y": 20,
+        "wires": [
+            [
+                "d65468f3ed10d705"
+            ]
+        ]
+    },
+    {
+        "id": "76973b73c337cc83",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "ip addr | grep \"wlan0\"",
+        "addpay": "",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 560,
+        "y": 140,
+        "wires": [
+            [
+                "725f259ea6d46b06"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "725f259ea6d46b06",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "conn check",
+        "func": "if (msg.payload.split(\" \")[2].replace(/</g, \"\").split(\",\")[0] !== \"NO-CARRIER\") {\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "ea2d291c5f100742"
+            ]
+        ]
+    },
+    {
+        "id": "0b0bd12ef89d1312",
+        "type": "exec",
+        "z": "70d3ab8470d8a674",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 350,
+        "y": 20,
+        "wires": [
+            [
+                "16a7f48051d58eb4"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "16a7f48051d58eb4",
+        "type": "debug",
+        "z": "70d3ab8470d8a674",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "d65468f3ed10d705",
+        "type": "function",
+        "z": "70d3ab8470d8a674",
+        "name": "function 7",
+        "func": "if (msg.error.source.name === \"conn check\") {\n    return ({payload: `nmcli dev wifi connect \"Inkoos_2.4G\" password \"d15_muN9@13\"`})\n} else {\n    \n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 220,
+        "y": 20,
+        "wires": [
+            [
+                "0b0bd12ef89d1312"
+            ]
+        ]
+    },
+    {
+        "id": "8302d870985eac9c",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "Buffer Write",
+        "func": "var i = flow.get('buffer') || []\nvar b = msg.payload;\ni.push(b)\nflow.set('buffer',i);\nmsg.payload = \"\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 280,
+        "wires": [
+            [
+                "9f6746453111a67c"
+            ]
+        ]
+    },
+    {
+        "id": "461ad33b79b53f7a",
+        "type": "link in",
+        "z": "d4bc3e2796f33eee",
+        "name": "IP-Address In",
+        "links": [
+            "f89e0bb122aa307e"
+        ],
+        "x": 35,
+        "y": 300,
+        "wires": [
+            [
+                "86ec0fcd852c2346"
+            ]
+        ]
+    },
+    {
+        "id": "86ec0fcd852c2346",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "admin",
+        "func": "setTimeout(function () {\n    msg.payload = \"Static Address = \"\n    node.send(msg)\n    msg.payload = global.get('local.addr_info[0].local')\n    node.send(msg)\n    msg.payload = \"MAC Address = \"+global.get('local.address')\n    node.send(msg)\n    msg.payload = \"Licence Activated\"\n    node.send(msg)\n    msg.payload = \"NODE Ready\"\n    node.send(msg)\n}, 1000);\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "8302d870985eac9c"
+            ]
+        ]
+    },
+    {
+        "id": "d558fd7c7072d0bd",
+        "type": "file",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "filename": "/home/root/.symDump",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": false,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eadc0a942cee2bdf",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "admin",
+        "func": "// var exclusion = global.get('exclusion');\nvar exclusion = [\"SILVERSTAR\", \"GOLDREEF\"];\n\nvar filter = global.get(`prod.filter`);\nif (filter === \"micros\") {\n    var imicr = msg.payload.replace(/([\\x00-\\x1f])/g, \"\").replace(/([\\x21-\\x2b])/g, \"\").replace(/--/g, \"\").trim()\n    if (!exclusion.includes(imicr)) {\n        if (imicr.length > 2) {\n            node.send([null, { payload: imicr }, null])\n        }\n    }\n}\nelse if (filter === \"usbpr\") {\n    var iUPR = msg.payload.replace(/([\\x00-\\x1f])/g, \"\").replace(/([\\x21-\\x2b])/g, \"\").replace(/--/g, \"\").trim()\n    if (!exclusion.includes(iUPR)) {\n        if (iUPR.length > 2) {\n            node.send([{ payload: iUPR }, null, null])\n        }\n    }\n}\nelse if (filter === \"kisan\") {\n    var ikis = msg.payload.replace(/([\\x00-\\x1f])/g, \"\").replace(/([\\x21-\\x2b])/g, \"\").replace(/--/g, \"\").trim()\n    if (!exclusion.includes(ikis)) {\n        if (ikis.length > 2) {\n            node.send([null, { payload: ikis }, null])\n        }\n    }\n}\nelse if (filter === \"dahua\") {\n    var idahu = msg.payload.replace(/([\\x00-\\x1f])/g, \"\").replace(/([\\x21-\\x2b])/g, \"\").replace(/--/g, \"\").trim()\n    if (!exclusion.includes(idahu)) {\n        if (idahu.length > 2) {\n            node.send([{ payload: idahu }, null, null])\n        }\n    }\n}\nelse if (filter === \"galaxy\") {\n    var bgal = msg.payload.split('\\n')\n    bgal.forEach(function (galaxy) {\n        if (galaxy !== \"\") {\n            node.send([null, null, { \"payload\": galaxy.replace(/(!#\\d)/g, \"\").trim() }]);\n        }\n    });\n}\nelse if (filter === \"locked\") {\n    var bloc = msg.payload.substring(1).split(\"~\")\n    bloc.forEach(function (locked) {\n        if (locked !== \"\") {\n            node.send([null, null, { \"payload\": locked.replace(/\u000b/g, \"\").trim() }]);\n        }\n    });\n    // node.send([null, null, { \"payload\": msg.payload.substring(1).replace(/\u000b/g, \"\").trim() }]);\n}\n\nelse if (filter === \"none\" || undefined) {\n    node.send([null, null, { \"payload\": msg.payload.toString() + '\\n' }])\n}",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "2bb8cbd9053602d3"
+            ],
+            [
+                "8302d870985eac9c"
+            ],
+            [
+                "8302d870985eac9c"
+            ]
+        ]
+    },
+    {
+        "id": "71cfaecee727310c",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "BOSCH http Request",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 580,
+        "y": 440,
+        "wires": [
+            [
+                "b5aa58662b77b5e7"
+            ]
+        ]
+    },
+    {
+        "id": "335d8f12c36615d1",
+        "type": "delay",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 440,
+        "wires": [
+            [
+                "71cfaecee727310c"
+            ]
+        ]
+    },
+    {
+        "id": "4f90478e307765bf",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "Bosch Setup",
+        "func": "var i = global.get('prod')\nif (i.make === \"Bosch\"){\n    msg.method = \"GET\"\n    msg.headers = { \"content-type\": 'application/xml' }\n    msg.digestUser = i.digestUser;\n    msg.digestPass = i.digestPass;\n        var Time = Date.now()\n        msg.url = `http://` + i.ip + `/rcp.xml?command=0x0084&type=T_OCTET&direction=WRITE&num=1&payload=3&_` + Time\n        node.send(msg)\n        var x = Number(global.get('prod.options.x')).toString(16).padStart(2, 0);\n        var y = Number(global.get('prod.options.y')).toString(16).padStart(2, 0);\n        if (global.get('prod.options.trans') === true) { var trans = 1 }\n        else if (global.get('prod.options.trans') === false) { var trans = 0 }\n        msg.url = `http://` + i.ip + `/rcp.xml?command=0x0936&type=P_OCTET&direction=WRITE&num=1&idstring=attrName&payload=0x` + x + y + `000000` + trans + `0000000000000&_` + Time\n        return msg;\n}\nelse {  }\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "e3a56e76ace37c29"
+            ]
+        ]
+    },
+    {
+        "id": "4c567f0f4364438f",
+        "type": "link in",
+        "z": "d4bc3e2796f33eee",
+        "name": "Bosch Setup",
+        "links": [
+            "f89e0bb122aa307e"
+        ],
+        "x": 35,
+        "y": 340,
+        "wires": [
+            [
+                "4f90478e307765bf"
+            ]
+        ]
+    },
+    {
+        "id": "b12cfaf4b25d911d",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "Type Set",
+        "func": "// var iconvLite = global.get('iconvLite');\nvar i = global.get('prod')\nmsg.digestUser = i.digestUser\nmsg.digestPass = i.digestPass\nconst bufferIn = flow.get('buffer');\nif (bufferIn.length <= i.lines) {\n    const stringSend = [\n        bufferIn[0],\n        bufferIn[1] || \"\",\n        bufferIn[2] || \"\",\n        bufferIn[3] || \"\",\n        bufferIn[4] || \"\",\n        bufferIn[5] || \"\"];\n    node.send({ bufferIn: bufferIn, length: \"buffer is \" + bufferIn.length, lessThanLines: stringSend })\n}\nelse if (bufferIn.length > i.lines) {\n    const bufferOut = bufferIn.shift()\n    const stringSend = [\n        bufferIn[0],\n        bufferIn[1],\n        bufferIn[2],\n        bufferIn[3],\n        bufferIn[4],\n        bufferIn[5]];\n    node.send({ length: \"postshift buffer is \" + bufferIn.length, bufferOut: bufferOut, bufferIn: bufferIn, moreThanLines: stringSend })\n}\nelse if (bufferIn === 0) { }\n\nif (i.make === \"Bosch\") {\n    msg.method = \"GET\"\n    msg.headers = { \"content-type\": 'application/xml' }\n    if (i.lines === 4) {\n        var iconvEncoded =\n            iconvLite.encode(bufferIn[0], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[1], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[2], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[3], 'utf-16be').toString('hex').padEnd(128, \"0\")\n    }\n    else if (i.lines === 6) {\n        var iconvEncoded =\n            iconvLite.encode(bufferIn[0], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[1], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[2], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[3], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[4], 'utf-16be').toString('hex').padEnd(128, \"0\") +\n            iconvLite.encode(bufferIn[5], 'utf-16be').toString('hex').padEnd(128, \"0\")\n    }\n    msg.url = 'http://' + i.ip +\n        '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' +\n        iconvEncoded +\n        '&rnd=' + Date.now()\n    return [null,msg,null,null,null]\n}\nelse if (i.make === \"Hikvision\") {\n    msg.method = \"PUT\"\n    msg.headers = { \"content-type\": 'application/x-www-form-urlencoded; charset=UTF-8' }\n    msg.url = 'http://' + i.ip + '/ISAPI/System/Video/inputs/channels/1/overlays';\n    msg.payload = '<?xml version=\"1.0\" encoding=\"utf-8\"?><VideoOverlay><normalizedScreenSize><normalizedScreenWidth>704</normalizedScreenWidth><normalizedScreenHeight>576</normalizedScreenHeight></normalizedScreenSize><attribute><transparent>false</transparent><flashing>false</flashing></attribute><fontSize>adaptive</fontSize><frontColorMode>auto</frontColorMode><alignment>alignLeft</alignment><TextOverlayList><TextOverlay><id>1</id><enabled>true</enabled><displayText>' +\n        bufferIn[0] + '</displayText><positionX>0</positionX><positionY>160</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>2</id><enabled>true</enabled><displayText>' +\n        bufferIn[1] + '</displayText><positionX>0</positionX><positionY>128</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>3</id><enabled>true</enabled><displayText>' +\n        bufferIn[2] + '</displayText><positionX>0</positionX><positionY>96</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>4</id><enabled>true</enabled><displayText>' +\n        bufferIn[3] + '</displayText><positionX>0</positionX><positionY>64</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay></TextOverlayList></VideoOverlay>';\n    return [null,null,msg,null,null]\n}\nelse if (i.make === \"Vivotek\") {\n    msg.method = \"GET\"\n    msg.headers = { \"content-type\": 'application/xml' }\n    msg.url = 'http://' + i.ip + '/cgi-bin/admin/setparam.cgi?videoin_c0_text=' +\n        bufferIn[0] + '&videoin_c0_imprinttimestamp=1&videoin_c0_cmosfreq=60&videoin_c0_flip=0&videoin_c0_mirror=0&videoin_c0_color=1&videoin_c0_textonvideo_position=top&videoin_c0_textonvideo_size=30&videoin_c0_textonvideo_fontpath=/usr/share/font/Default.ttf&videoin_c0_rotate=0'\n    return [null,null,null,msg,null]\n}\nelse if (i.make === \"Dahua\") {    \n    msg.method = \"POST\"\n    msg.url = 'http://' + i.ip + '/cgi-bin/configManager.cgi?action=setConfig&VideoWidget[0].CustomTitle[1].Text=' + \n    bufferIn[0] + '|' +  bufferIn[1] + '|' + bufferIn[2] + '|' + bufferIn[3] + '|' + bufferIn[4]\n    return [null,null,null,null,msg];\n}",
+        "outputs": 12,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "iconvLite",
+                "module": "iconv-lite"
+            }
+        ],
+        "x": 140,
+        "y": 660,
+        "wires": [
+            [
+                "243e49c1ca7c68a8"
+            ],
+            [
+                "335d8f12c36615d1"
+            ],
+            [
+                "f4a50506f9f42fdd"
+            ],
+            [
+                "2a5f73d34bad200d"
+            ],
+            [
+                "b8dab5e5e23d4dbc"
+            ],
+            [],
+            [],
+            [],
+            [],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "4b7c4d0827ad80c6",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "d": true,
+        "name": "",
+        "func": "\nreturn {\"payload\":new Date()+' '+msg.payload};",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "d558fd7c7072d0bd"
+            ]
+        ]
+    },
+    {
+        "id": "9f6746453111a67c",
+        "type": "link out",
+        "z": "d4bc3e2796f33eee",
+        "name": "link out 3",
+        "links": [
+            "c10497cf805fb217"
+        ],
+        "x": 615,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c10497cf805fb217",
+        "type": "link in",
+        "z": "d4bc3e2796f33eee",
+        "name": "link in 2",
+        "links": [
+            "9f6746453111a67c"
+        ],
+        "x": 35,
+        "y": 660,
+        "wires": [
+            [
+                "b12cfaf4b25d911d"
+            ]
+        ]
+    },
+    {
+        "id": "3c6f3140c56f3d72",
+        "type": "link in",
+        "z": "d4bc3e2796f33eee",
+        "name": "link in 3",
+        "links": [
+            "226fc85ad7ad55a4"
+        ],
+        "x": 35,
+        "y": 240,
+        "wires": [
+            [
+                "eadc0a942cee2bdf"
+            ]
+        ]
+    },
+    {
+        "id": "e3a56e76ace37c29",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 390,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d1f8959805c8acfd",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "Hikvision http request",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 580,
+        "y": 500,
+        "wires": [
+            [
+                "3fd3322e51adddd2"
+            ]
+        ]
+    },
+    {
+        "id": "f4a50506f9f42fdd",
+        "type": "delay",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "d1f8959805c8acfd"
+            ]
+        ]
+    },
+    {
+        "id": "4513449910efdd81",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "Vivotek http request",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 570,
+        "y": 560,
+        "wires": [
+            [
+                "46620802d76e2f7f"
+            ]
+        ]
+    },
+    {
+        "id": "2a5f73d34bad200d",
+        "type": "delay",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 560,
+        "wires": [
+            [
+                "4513449910efdd81"
+            ]
+        ]
+    },
+    {
+        "id": "a5e9e151f85e95d7",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "Dahua http request",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 570,
+        "y": 620,
+        "wires": [
+            [
+                "a92ac7d2a1dc31aa"
+            ]
+        ]
+    },
+    {
+        "id": "b8dab5e5e23d4dbc",
+        "type": "delay",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "2",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 620,
+        "wires": [
+            [
+                "a5e9e151f85e95d7"
+            ]
+        ]
+    },
+    {
+        "id": "a95ba3347ab30422",
+        "type": "debug",
+        "z": "d4bc3e2796f33eee",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "243e49c1ca7c68a8",
+        "type": "delay",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "pauseType": "rate",
+        "timeout": "5",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "a95ba3347ab30422"
+            ]
+        ]
+    },
+    {
+        "id": "2aa3ebacb0d21c46",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "clear screen",
+        "func": "var i = global.get('prod');\nmsg.digestUser = i.digestUser;\nmsg.digestPass = i.digestPass;\nflow.set('buffer')\nmsg.method = \"GET\";\nmsg.headers = {\"content-type\": 'application/xml'};\nif (i.lines === 4){\nmsg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(512, 0) + '&rnd=' + Date.now()\n}\nelse if (i.lines === 6){\n    msg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(768, 0) + '&rnd=' + Date.now()\n}\nmsg.payload = \"\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 440,
+        "wires": [
+            [
+                "aab9d1afc4f60b35"
+            ]
+        ]
+    },
+    {
+        "id": "b5aa58662b77b5e7",
+        "type": "trigger",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 760,
+        "y": 440,
+        "wires": [
+            [
+                "2aa3ebacb0d21c46"
+            ]
+        ]
+    },
+    {
+        "id": "0682dad85c1463f4",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "clear screen",
+        "func": "var i = global.get('prod');\nmsg.digestUser = i.digestUser;\nmsg.digestPass = i.digestPass;\nflow.set('buffer')\nif (global.get(\"prod.make\") === \"Hikvision\"){\n    msg.method = \"PUT\"\n    msg.headers = {\"content-type\": 'application/x-www-form-urlencoded; charset=UTF-8'}\n    msg.payload = '<?xml version=\"1.0\" encoding=\"utf-8\"?><VideoOverlay><normalizedScreenSize><normalizedScreenWidth>704</normalizedScreenWidth><normalizedScreenHeight>576</normalizedScreenHeight></normalizedScreenSize><attribute><transparent>false</transparent><flashing>false</flashing></attribute><fontSize>adaptive</fontSize><frontColorMode>auto</frontColorMode><alignment>alignLeft</alignment><TextOverlayList><TextOverlay><id>1</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>128</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>2</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>96</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>3</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>64</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>4</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>32</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay></TextOverlayList></VideoOverlay>';\n    msg.url = 'http://' + i.ip + '/ISAPI/System/Video/inputs/channels/1/overlays';\n}\nelse if (global.get(\"prod.make\") === \"Bosch\"){\n    msg.method = \"GET\";\n    msg.headers = {\"content-type\": 'application/xml'};\n    if (i.lines === 4){\n    msg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(512, 0) + '&rnd=' + Date.now()\n    }\n    else if (i.lines === 6){\n        msg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(768, 0) + '&rnd=' + Date.now()\n    }\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 910,
+        "y": 500,
+        "wires": [
+            [
+                "883c1eefd240e33b"
+            ]
+        ]
+    },
+    {
+        "id": "3fd3322e51adddd2",
+        "type": "trigger",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 760,
+        "y": 500,
+        "wires": [
+            [
+                "0682dad85c1463f4"
+            ]
+        ]
+    },
+    {
+        "id": "883c1eefd240e33b",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 1070,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b772ed8baa31d5b",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "clear screen",
+        "func": "var i = global.get('prod');\nmsg.digestUser = i.digestUser;\nmsg.digestPass = i.digestPass;\nflow.set('buffer')\nif (global.get(\"prod.make\") === \"Hikvision\"){\n    msg.method = \"PUT\"\n    msg.headers = {\"content-type\": 'application/x-www-form-urlencoded; charset=UTF-8'}\n    msg.payload = '<?xml version=\"1.0\" encoding=\"utf-8\"?><VideoOverlay><normalizedScreenSize><normalizedScreenWidth>704</normalizedScreenWidth><normalizedScreenHeight>576</normalizedScreenHeight></normalizedScreenSize><attribute><transparent>false</transparent><flashing>false</flashing></attribute><fontSize>adaptive</fontSize><frontColorMode>auto</frontColorMode><alignment>alignLeft</alignment><TextOverlayList><TextOverlay><id>1</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>128</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>2</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>96</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>3</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>64</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay><TextOverlay><id>4</id><enabled>true</enabled><displayText></displayText><positionX>0</positionX><positionY>32</positionY><alignment>1</alignment><minMoveValue>16</minMoveValue></TextOverlay></TextOverlayList></VideoOverlay>';\n    msg.url = 'http://' + i.ip + '/ISAPI/System/Video/inputs/channels/1/overlays';\n}\nelse if (global.get(\"prod.make\") === \"Bosch\"){\n    msg.method = \"GET\";\n    msg.headers = {\"content-type\": 'application/xml'};\n    if (i.lines === 4){\n    msg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(512, 0) + '&rnd=' + Date.now()\n    }\n    else if (i.lines === 6){\n        msg.url = 'http://' + i.ip + '/rcp.xml?command=0x0bb1&type=P_UNICODE&direction=WRITE&num=1&idstring=lines&payload=0x' + \"0\".padEnd(768, 0) + '&rnd=' + Date.now()\n    }\n}\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 560,
+        "wires": [
+            [
+                "b690b63254368aea"
+            ]
+        ]
+    },
+    {
+        "id": "46620802d76e2f7f",
+        "type": "trigger",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 740,
+        "y": 560,
+        "wires": [
+            [
+                "3b772ed8baa31d5b"
+            ]
+        ]
+    },
+    {
+        "id": "b690b63254368aea",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "805b7a18e2a93d47",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "clear screen",
+        "func": "var i = global.get('prod');\nmsg.digestUser = i.digestUser;\nmsg.digestPass = i.digestPass;\nflow.set('buffer')\nmsg.method = \"POST\"\nmsg.url = 'http://' + i.ip + '/cgi-bin/configManager.cgi?action=setConfig&VideoWidget[0].CustomTitle[1].Text=                      |                      |                      |                      |                      '\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 620,
+        "wires": [
+            [
+                "78d63f9731ae7b8f"
+            ]
+        ]
+    },
+    {
+        "id": "a92ac7d2a1dc31aa",
+        "type": "trigger",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "op1": "",
+        "op2": "0",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 740,
+        "y": 620,
+        "wires": [
+            [
+                "805b7a18e2a93d47"
+            ]
+        ]
+    },
+    {
+        "id": "78d63f9731ae7b8f",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "query",
+        "url": "",
+        "tls": "",
+        "persist": true,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 1050,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aab9d1afc4f60b35",
+        "type": "http request",
+        "z": "d4bc3e2796f33eee",
+        "name": "BOSCH http Request",
+        "method": "use",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "digest",
+        "senderr": false,
+        "headers": [],
+        "x": 1100,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43718d981333730e",
+        "type": "link in",
+        "z": "d4bc3e2796f33eee",
+        "name": "Data In to Cam",
+        "links": [
+            "dabe16af1afc4da2"
+        ],
+        "x": 35,
+        "y": 180,
+        "wires": [
+            [
+                "eadc0a942cee2bdf",
+                "4b7c4d0827ad80c6"
+            ]
+        ]
+    },
+    {
+        "id": "8f9dccf1c57c9f16",
+        "type": "debug",
+        "z": "d4bc3e2796f33eee",
+        "name": "debug 14",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c000aeecf2aada64",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "function 4",
+        "func": "node.log(`\\r\\n`+msg.payload);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 220,
+        "wires": [
+            [
+                "8f9dccf1c57c9f16"
+            ]
+        ]
+    },
+    {
+        "id": "3dc762bf9526fc3f",
+        "type": "join",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "mode": "custom",
+        "build": "string",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "5",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "c000aeecf2aada64"
+            ]
+        ]
+    },
+    {
+        "id": "07a6bf4f954604e4",
+        "type": "comment",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "info": "sudo \nmodprobe g_printer idVendor=0x04b8 idProduct=0x0e02 bcdDevice=\"256\" iManufacturer=\"EPSON\" iProduct=\"TM-T88V\" iSerialNum=\"405139460344080000\" iPNPstring=\"MFG:EPSON;CMD:ESC/POS;MDL:TM-T88V;CLS:PRINTER;DES:EPSON TM-T88V;CID:EpsonTM00000001;\"\nmodprobe g_printer idVendor=0x04b8 idProduct=0x0e02 bcdDevice=\"256\" iManufacturer=\"EPSON\" iProduct=\"TM-T88V\" iSerialNum=\"405139460344080000\" iPNPstring=\"MFG:EPSON;CMD:ESC/POS;MDL:TM-T88V;CLS:PRINTER;DES:EPSON TM-T88V;CID:EpsonTM00000001;\"\n",
+        "x": 280,
+        "y": 1500,
+        "wires": []
+    },
+    {
+        "id": "0a5ffd3a39c37ef1",
+        "type": "watch",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "files": "/home/root",
+        "recursive": "",
+        "x": 80,
+        "y": 100,
+        "wires": [
+            [
+                "225b04bb9749f967"
+            ]
+        ]
+    },
+    {
+        "id": "88b071a25ae02e23",
+        "type": "file in",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "format": "lines",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "cde49ed4723c1f26"
+            ]
+        ]
+    },
+    {
+        "id": "225b04bb9749f967",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "function 2",
+        "func": "if (global.get(\"prod.filter\") === \"usbpr\"){\n    if (msg.event === \"update\") {\n        if (msg.payload.split(\".\")[1] === \"pcl\") {\n            if (msg.size !== 0) {\n                return msg;\n            }\n        }\n        else {\n            node.error(\"changes not PCL\", msg);\n        }\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 100,
+        "wires": [
+            [
+                "88b071a25ae02e23"
+            ]
+        ]
+    },
+    {
+        "id": "98245476facf667c",
+        "type": "file",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "filename": "filename",
+        "filenameType": "msg",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "delete",
+        "encoding": "none",
+        "x": 810,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cde49ed4723c1f26",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "function 3",
+        "func": "if (msg.payload.length !== 0) {\n    msg.payload = msg.payload.replace(/\\r/g, \"\")\n        .replace(/\\n/g, \"\")\n        .trim()\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 100,
+        "wires": [
+            [
+                "f8cbb5f567504963",
+                "dabe16af1afc4da2"
+            ]
+        ]
+    },
+    {
+        "id": "f8cbb5f567504963",
+        "type": "trigger",
+        "z": "d4bc3e2796f33eee",
+        "name": "",
+        "op1": "",
+        "op2": "",
+        "op1type": "nul",
+        "op2type": "pay",
+        "duration": "5",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 680,
+        "y": 100,
+        "wires": [
+            [
+                "98245476facf667c"
+            ]
+        ]
+    },
+    {
+        "id": "dabe16af1afc4da2",
+        "type": "link out",
+        "z": "d4bc3e2796f33eee",
+        "name": "Data Out to Cam",
+        "mode": "link",
+        "links": [
+            "43718d981333730e"
+        ],
+        "x": 635,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2bb8cbd9053602d3",
+        "type": "function",
+        "z": "d4bc3e2796f33eee",
+        "name": "function 5",
+        "func": "var str = msg.payload\nvar char = global.get(\"prod.char\")\nvar result = stringDivider(str, char, \"\\n\");\nconsole.log(result);\n\nfunction stringDivider(str, width, spaceReplacer) {\n    if (str.length > width) {\n        var p = width\n        for (; p > 0 && str[p] != ' '; p--) {\n        }\n        if (p > 0) {\n            var left = str.substring(0, p);\n            var right = str.substring(p + 1);\n            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);\n        }\n    }\n    return str;\n}\nmsg.payload = result;\n// return msg;\nvar i = result.split('\\n');\nif (i.length === 1) {\n    return msg;\n}\nelse if (i.length > 1) {\n    for (var element of i) {\n        node.send({ payload: element })\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "c74f59104025cbfd",
+                "3dc762bf9526fc3f",
+                "8302d870985eac9c"
+            ]
+        ]
+    },
+    {
+        "id": "c74f59104025cbfd",
+        "type": "debug",
+        "z": "d4bc3e2796f33eee",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 180,
+        "wires": []
+    }
+]

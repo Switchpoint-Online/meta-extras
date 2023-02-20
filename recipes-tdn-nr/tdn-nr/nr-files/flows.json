@@ -1,0 +1,281 @@
+[
+    {
+        "id": "821d2f5e77804562",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e1e573bfd245ee6c",
+        "type": "inject",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": ".1",
+        "topic": "",
+        "payload": "{\"group\":{\"hide\":[\"Camera_Definition_Options\",\"TDN_Setup_Countdown\"],\"show\":[\"TDN_Setup_Device_Setup\"]}}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "92b2f6df2d440dd0",
+                "937a68c3f87c33b6"
+            ]
+        ]
+    },
+    {
+        "id": "92b2f6df2d440dd0",
+        "type": "exec",
+        "z": "821d2f5e77804562",
+        "command": "ip addr | grep \"link/ether\"",
+        "addpay": false,
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "ip addr",
+        "x": 230,
+        "y": 80,
+        "wires": [
+            [
+                "08d2f7e1a832e082"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "08d2f7e1a832e082",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "admin",
+        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.trim().split(\" \")[1] + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/node-red-0.0.1.tg /home/root/node-red-0.0.1.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/node-red-0.0.1.tgz`})\n    } else {\n    }\n}, 1000);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "crypto",
+                "module": "crypto"
+            }
+        ],
+        "x": 370,
+        "y": 80,
+        "wires": [
+            [
+                "a2dc24dc06775655"
+            ]
+        ]
+    },
+    {
+        "id": "937a68c3f87c33b6",
+        "type": "file in",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "filename": "/home/root/.node-red/app/.SHA",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 310,
+        "y": 20,
+        "wires": [
+            [
+                "a9fddf40cbe6ecd6"
+            ]
+        ]
+    },
+    {
+        "id": "a9fddf40cbe6ecd6",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "func": "node.send(msg)\nvar i = msg.payload.split('\\n');\nvar b = [];\nfor (const element of i) {\n  b.push(element.trim());\n}\nglobal.set('SHA',b);\nmsg.payload = b\nnode.send(msg)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a2dc24dc06775655",
+        "type": "exec",
+        "z": "821d2f5e77804562",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "npm",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "506a5a9980f0923b"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "506a5a9980f0923b",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "function 1",
+        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `mv /home/root/install/node_modules/node-red/ /home/root/.node-red/` })\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 140,
+        "wires": [
+            [
+                "ab18a1d20bfa7343",
+                "b055725d01c463dc"
+            ]
+        ]
+    },
+    {
+        "id": "b055725d01c463dc",
+        "type": "exec",
+        "z": "821d2f5e77804562",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "cp",
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "ce6164a55e6b10fa"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "caf148ce5dd1e716",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "function 3",
+        "func": "if (msg.payload.length > 80000) {\n    setTimeout(function () {\n        node.send({ payload: `reboot` })\n    }, 1000);\n} else {\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 260,
+        "wires": [
+            [
+                "1daa13926ccc6e9c"
+            ]
+        ]
+    },
+    {
+        "id": "1daa13926ccc6e9c",
+        "type": "exec",
+        "z": "821d2f5e77804562",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "reboot",
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7daefadc0daf1022",
+        "type": "file in",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "filename": "/home/root/.node-red/flows.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "caf148ce5dd1e716"
+            ]
+        ]
+    },
+    {
+        "id": "ce6164a55e6b10fa",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "function 4",
+        "func": "if(msg.payload.length !== 0){\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 200,
+        "wires": [
+            [
+                "7daefadc0daf1022"
+            ]
+        ]
+    },
+    {
+        "id": "ab18a1d20bfa7343",
+        "type": "debug",
+        "z": "821d2f5e77804562",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 160,
+        "wires": []
+    }
+]
