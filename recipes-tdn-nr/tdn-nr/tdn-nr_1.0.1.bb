@@ -11,6 +11,8 @@ do_install() {
     install -d ${D}/home/root
     mkdir ${D}/home/root/.node-red
     cp -R ${MY_FILES}/* ${D}/home/root/.node-red
+    mv ${D}/home/root/app/SHA ${D}/home/root/app/.SHA
+    chmod +x ${D}/home/root/app/printer_minimal
 }
 
 FILES:${PN}= "/home/root/.node-red"
