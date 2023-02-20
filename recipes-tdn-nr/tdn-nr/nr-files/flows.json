@@ -88,7 +88,7 @@
         "type": "file in",
         "z": "821d2f5e77804562",
         "name": "",
-        "filename": "/home/root/.node-red/app/.SHA",
+        "filename": "/home/root/.node-red/app/SHA",
         "filenameType": "str",
         "format": "utf8",
         "chunk": false,
