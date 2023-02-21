@@ -53,7 +53,7 @@ module.exports = {
      * the user's home directory. To use a different location, the following
      * property can be used
      */
-    //userDir: '/home/nol/.node-red/',
+    userDir: '/home/root/.node-red/',
 
     /** Node-RED scans the `nodes` directory in the userDir to find local node files.
      * The following property can be used to specify an additional directory to scan.
@@ -240,7 +240,7 @@ module.exports = {
      *      and httpStaticRoot = "/static/"
      *      then "/home/nol/pics/" will be served at "/static/img/"
      */
-    //httpStaticRoot: '/static/',
+    httpStaticRoot: '../app',
 
 /*******************************************************************************
  * Runtime Settings
@@ -310,12 +310,12 @@ module.exports = {
      externalModules: {
          // autoInstall: false,   /** Whether the runtime will attempt to automatically install missing modules */
          // autoInstallRetry: 30, /** Interval, in seconds, between reinstall attempts */
-         // palette: {              /** Configuration for the Palette Manager */
-         //     allowInstall: true, /** Enable the Palette Manager in the editor */
-         //     allowUpload: true,  /** Allow module tgz files to be uploaded and installed */
+         palette: {              /** Configuration for the Palette Manager */
+			allowInstall: false, /** Enable the Palette Manager in the editor */
+            allowUpload: true,  /** Allow module tgz files to be uploaded and installed */
          //     allowList: [],
          //     denyList: []
-         // },
+         },
          // modules: {              /** Configuration for node-specified modules */
          //     allowInstall: true,
          //     allowList: [],
@@ -446,7 +446,7 @@ module.exports = {
     ui: { path: "" },
 
     /** Colourise the console output of the debug node */
-    //debugUseColors: true,
+    debugUseColors: true,
 
     /** The maximum length, in characters, of any message sent to the debug sidebar tab */
     debugMaxLength: 1000,
