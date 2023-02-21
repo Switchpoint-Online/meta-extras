@@ -8,49 +8,19 @@
         "env": []
     },
     {
-        "id": "e1e573bfd245ee6c",
-        "type": "inject",
-        "z": "821d2f5e77804562",
-        "name": "",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": ".1",
-        "topic": "",
-        "payload": "{\"group\":{\"hide\":[\"Camera_Definition_Options\",\"TDN_Setup_Countdown\"],\"show\":[\"TDN_Setup_Device_Setup\"]}}",
-        "payloadType": "json",
-        "x": 90,
-        "y": 60,
-        "wires": [
-            [
-                "92b2f6df2d440dd0",
-                "937a68c3f87c33b6"
-            ]
-        ]
-    },
-    {
         "id": "92b2f6df2d440dd0",
         "type": "exec",
         "z": "821d2f5e77804562",
-        "command": "ip addr | grep \"link/ether\"",
-        "addpay": false,
+        "command": "",
+        "addpay": "payload",
         "append": "",
         "useSpawn": "false",
         "timer": "",
         "winHide": false,
         "oldrc": false,
         "name": "ip addr",
-        "x": 230,
-        "y": 80,
+        "x": 270,
+        "y": 180,
         "wires": [
             [
                 "08d2f7e1a832e082"
@@ -75,8 +45,8 @@
                 "module": "crypto"
             }
         ],
-        "x": 370,
-        "y": 80,
+        "x": 410,
+        "y": 180,
         "wires": [
             [
                 "a2dc24dc06775655"
@@ -87,16 +57,16 @@
         "id": "937a68c3f87c33b6",
         "type": "file in",
         "z": "821d2f5e77804562",
-        "name": "",
-        "filename": "/home/root/.node-red/app/.SHA",
-        "filenameType": "str",
+        "name": "load",
+        "filename": "path",
+        "filenameType": "msg",
         "format": "utf8",
         "chunk": false,
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 310,
-        "y": 20,
+        "x": 530,
+        "y": 120,
         "wires": [
             [
                 "a9fddf40cbe6ecd6"
@@ -114,8 +84,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 20,
+        "x": 660,
+        "y": 120,
         "wires": [
             []
         ]
@@ -132,8 +102,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "npm",
-        "x": 310,
-        "y": 140,
+        "x": 350,
+        "y": 240,
         "wires": [
             [
                 "506a5a9980f0923b"
@@ -147,14 +117,14 @@
         "type": "function",
         "z": "821d2f5e77804562",
         "name": "function 1",
-        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `mv /home/root/install/node_modules/node-red/ /home/root/.node-red/` })\n    }\n}",
+        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `mv /home/root/install/node_modules/node-red/ /home/root/.node-red/` })\n        node.send({ payload: `echo \"{ \"ip\": \"192.168.0.210\", \"digestUser\": \"service\", \"digestPass\": \"Admin123!\", \"make\": \"Bosch\", \"lines\": 6, \"options\": { \"x\": 0, \"y\": 255, \"trans\": true }, \"filter\": \"micros\" }\" > /home/root/.usrTemp` })\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 140,
+        "x": 500,
+        "y": 240,
         "wires": [
             [
                 "b055725d01c463dc"
@@ -173,8 +143,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "cp",
-        "x": 390,
-        "y": 200,
+        "x": 430,
+        "y": 300,
         "wires": [
             [
                 "ce6164a55e6b10fa"
@@ -194,8 +164,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 500,
-        "y": 260,
+        "x": 540,
+        "y": 360,
         "wires": [
             [
                 "1daa13926ccc6e9c"
@@ -214,8 +184,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "reboot",
-        "x": 630,
-        "y": 260,
+        "x": 670,
+        "y": 360,
         "wires": [
             [],
             [],
@@ -234,8 +204,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 290,
-        "y": 260,
+        "x": 330,
+        "y": 360,
         "wires": [
             [
                 "caf148ce5dd1e716"
@@ -253,11 +223,139 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 200,
+        "x": 580,
+        "y": 300,
         "wires": [
             [
                 "7daefadc0daf1022"
+            ]
+        ]
+    },
+    {
+        "id": "09d4029e5c7b909d",
+        "type": "catch",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 80,
+        "y": 40,
+        "wires": [
+            [
+                "75cd865634f82db1"
+            ]
+        ]
+    },
+    {
+        "id": "75cd865634f82db1",
+        "type": "debug",
+        "z": "821d2f5e77804562",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "b92d6b75e13f2020",
+        "type": "exec",
+        "z": "821d2f5e77804562",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "b13100400ed60a3d"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "991f9f56fc4e5cf1",
+        "type": "inject",
+        "z": "821d2f5e77804562",
+        "name": "cp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "mv -v /home/root/.node-red/app/SHA /home/root/.SHA",
+        "payloadType": "str",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "b92d6b75e13f2020"
+            ]
+        ]
+    },
+    {
+        "id": "b13100400ed60a3d",
+        "type": "function",
+        "z": "821d2f5e77804562",
+        "name": "function 5",
+        "func": "if (msg.payload.split(\" \")[0] === \"renamed\") {\n    node.send({ payload: `ip addr | grep \"link/ether\"`, path: `/home/root/.SHA`})\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "937a68c3f87c33b6",
+                "628df0043f5ceccb"
+            ]
+        ]
+    },
+    {
+        "id": "628df0043f5ceccb",
+        "type": "delay",
+        "z": "821d2f5e77804562",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "92b2f6df2d440dd0"
             ]
         ]
     }
