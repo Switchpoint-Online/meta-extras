@@ -1,5 +1,5 @@
-SUMMARY = "TDN Extras"
-DESCRIPTION = "Flows and Settings"
+SUMMARY = "TDN USB Printer Extras"
+DESCRIPTION = "printer.c"
 HOMEPAGE = ""
 LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
