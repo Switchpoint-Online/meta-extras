@@ -4,7 +4,7 @@ HOMEPAGE = ""
 LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
-SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=langdale-v3"
+SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=kirkstone"
 SRC_URI[sha256sum] = "3d51ac2e408ea9b20c577e366d1b62e11080006ed2209eb10308c1e72922ea14"
 
 do_install() {
