@@ -1,11 +1,11 @@
-SUMMARY = "TDN USB Printer Extras"
-DESCRIPTION = "printer.c"
+SUMMARY = "TDN Extras"
+DESCRIPTION = ""
 HOMEPAGE = ""
 LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=kirkstone"
-SRC_URI[sha256sum] = "3d51ac2e408ea9b20c577e366d1b62e11080006ed2209eb10308c1e72922ea14"
+SRC_URI[sha256sum] = "6e22de75e82abe945586937a677a8e555682b51a8b6d95f22bad9826ccad4af2"
 
 do_install() {
     install -d ${D}/home/root
