@@ -8,6 +8,7 @@ SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;b
 SRC_URI[sha256sum] = "e83a622367c366873a71fef9f0b88d15db2f11511d2055b2c945fd23a0e9dbeb"
 
 SRCREV = "${AUTOREV}"
+PV = "1.0+git${SRCPV}"
 
 do_install() {
     install -d ${D}/home/root
