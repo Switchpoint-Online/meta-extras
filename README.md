@@ -23,6 +23,10 @@ cd ~/Yocto/build/
 exit
 
 ## Beaglebone Black Dunfell BSP
+### Work in Progress
+#### TODO 
+Added Nelson Robert Kernal and get Modprobe functional 
+
 cd Yocto/Dunfell/
 git clone -b dunfell git://git.openembedded.org/meta-openembedded
 git clone -b dunfell git://git.yoctoproject.org/poky.git
