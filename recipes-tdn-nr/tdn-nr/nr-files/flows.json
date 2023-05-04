@@ -34,7 +34,7 @@
         "type": "function",
         "z": "8a2509fe537f04ba",
         "name": "admin",
-        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.split(\":\")[1].trim() + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/node-red-0.0.1.tgz /home/root/node-red-0.0.1.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/node-red-project-0.0.1.tgz`})\n    } else {\n    }\n}, 1000);",
+        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.split(\":\")[1].trim() + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/nr.tgz /home/root/nr.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/nr.tgz`})\n    } else {\n    }\n}, 1000);",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
