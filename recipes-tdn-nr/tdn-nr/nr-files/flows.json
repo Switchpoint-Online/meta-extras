@@ -564,8 +564,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 80,
+        "x": 700,
+        "y": 60,
         "wires": []
     },
     {
@@ -689,13 +689,13 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "echo \"auto lo iface lo inet loopback  auto eth0 iface eth0 inet static address 169.254.100.201 netmask 255.255.0.0  auto enp1s0 iface enp1s0 inet static address 192.168.0.20 netmask 255.255.255.0\" > /etc/network/interfaces",
-        "payloadType": "str",
-        "x": 90,
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
         "y": 80,
         "wires": [
             [
-                "53aa05bd679a7182"
+                "b8c7cf7a6c8b68b7"
             ]
         ]
     },
@@ -711,7 +711,7 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 230,
+        "x": 390,
         "y": 80,
         "wires": [
             [
@@ -736,8 +736,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 100,
+        "x": 540,
+        "y": 80,
         "wires": []
     },
     {
@@ -753,8 +753,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 400,
-        "y": 60,
+        "x": 540,
+        "y": 40,
         "wires": []
     },
     {
@@ -824,5 +824,24 @@
         "x": 740,
         "y": 620,
         "wires": []
+    },
+    {
+        "id": "b8c7cf7a6c8b68b7",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 6",
+        "func": "node.send({payload:`echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\naddress 169.254.100.201\nnetmask 255.255.0.0\n\nauto enp1s0\niface enp1s0 inet static\naddress 192.168.0.20\nnetmask 255.255.255.0\n\" > /etc/network / interfaces`\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "53aa05bd679a7182"
+            ]
+        ]
     }
 ]

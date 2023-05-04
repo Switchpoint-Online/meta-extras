@@ -7,7 +7,7 @@ MY_FILES = "${THISDIR}/nr-files"
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale"
 SRC_URI[sha256sum] = "9afa57eb7eb5dc89f989097eeff9ad81c703c7a74ec08f08ed3a5d302e78106d"
 
-SRCREV = "301f59a8177cad8d4bdb93672ad2f5ffffa4a18d"
+SRCREV = "b2e0c49ca40dc5dda3e509c5ceaca52051d402b6"
 # BPV = "0.1.0"
 # PV = "${BPV}+gitr${SRCPV}" 
 
