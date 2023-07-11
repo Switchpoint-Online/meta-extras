@@ -12,9 +12,9 @@ SRCREV = "2fc7995c4215f58a433c1d702f716b515714cff1"
 # PV = "${BPV}+gitr${SRCPV}" 
 
 do_install() {
-    install -d ${D}/root
-    mkdir ${D}/root/.node-red
-    cp -R ${MY_FILES}/* ${D}/root/.node-red
+    install -d ${D}/home/root
+    mkdir ${D}/home/root/.node-red
+    cp -R ${MY_FILES}/* ${D}/home/root/.node-red
 }
 
-FILES:${PN}= "/root/.node-red"
+FILES:${PN}= "/home/root/.node-red"
