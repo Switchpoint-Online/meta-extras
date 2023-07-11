@@ -53,12 +53,12 @@ module.exports = {
      * the user's home directory. To use a different location, the following
      * property can be used
      */
-    userDir: '/root/.node-red/',
+    userDir: '/home/root/.node-red/',
 
     /** Node-RED scans the `nodes` directory in the userDir to find local node files.
      * The following property can be used to specify an additional directory to scan.
      */
-    nodesDir: '/root/.node-red/node_modules',
+    nodesDir: '/home/root/.node-red/node_modules',
 
 /*******************************************************************************
  * Security
