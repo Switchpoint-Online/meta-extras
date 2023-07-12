@@ -55,3 +55,8 @@ bitbake console-image --runonly=fetch
 cp balenaEtcher-1.14.3-x64.AppImage /bin/balenaEtcher
 sudo cp balenaEtcher-1.14.3-x64.AppImage /bin/balenaEtcher
 balenaEtcher 
+
+
+## RADXA CM3 IO Board - incl waveshare POE
+### Working to test
+#### 
