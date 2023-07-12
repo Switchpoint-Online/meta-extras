@@ -94,7 +94,7 @@ su root
 passwd root
 cd ~/app
 tar -xvf node-v16.20.1-linux-arm64.tar.xz
-sudo cp -r ode-v16.20.1-linux-arm64/{bin,include,lib,share} /usr/
+sudo cp -r node-v16.20.1-linux-arm64/{bin,include,lib,share} /usr/
 export PATH=/usr/node-v16.20.1-linux-arm64/bin:$PATH
 sudo npm install -g --unsafe-perm node-red
 npm --prefix /home/root/install install /home/root/app/nr.tgz
