@@ -54,6 +54,7 @@ sudo rkdeveloptool wl 0x0000 ~/Yocto/TDN-GSI-Radxa-cm3-Dunfell/build/tmp/deploy/
 sudo rkdeveloptool rd
 
 ### setup security and install
+#### Run as root
 rock 
 su root
 passwd root
@@ -66,6 +67,10 @@ npm --prefix /home/root/install install /home/root/app/nr.tgz
 mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/
 mv -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
 mv -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+cp -v node-red.service /lib/systemd/system/node-red.service
+systemctl daemon-reload
+systemctl enable node-red 
+systemctl start node-red
 
 
 ## Beaglebone Black Dunfell BSP
