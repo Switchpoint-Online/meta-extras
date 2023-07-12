@@ -13,8 +13,8 @@ SRCREV = "dbd90617a134bdf584994e550485ef4163f99284"
 
 do_install() {
     install -d ${D}/home/root
-    mkdir ${D}/home/root/.node-red
-    cp -R ${MY_FILES}/* ${D}/home/root/.node-red
+    mkdir ${D}/home/root/app
+    cp -R ${MY_FILES}/* ${D}/home/root/app
 }
 
-FILES:${PN}= "/home/root/.node-red"
+FILES:${PN}= "/home/root/app"
