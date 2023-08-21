@@ -5,11 +5,10 @@ LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale"
-SRC_URI[sha256sum] = "8562047a35dbc8778ec7614d83968ff48795d0be0515aa19ce9e71452240ce2b"
+SRC_URI[sha256sum] = "5bce76250f8d9b257ef202c79a27967157b3b28f02a2b8300f964379ddb9aa50"
 
-SRCREV = "b2e0c49ca40dc5dda3e509c5ceaca52051d402b6"
-# BPV = "0.1.0"
-# PV = "${BPV}+gitr${SRCPV}" 
+
+SRCREV = "930713349bed200c5a4c52e7f949cce3fdeb1bad"
 
 do_install() {
     install -d ${D}/home/root
