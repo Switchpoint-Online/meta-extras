@@ -4,7 +4,10 @@ HOMEPAGE = ""
 LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
-SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale"
+SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale \
+           file://procscan.c \
+           file://README.md"
+           
 SRC_URI[sha256sum] = "5bce76250f8d9b257ef202c79a27967157b3b28f02a2b8300f964379ddb9aa50"
 
 
