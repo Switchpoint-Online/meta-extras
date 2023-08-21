@@ -1,0 +1,847 @@
+[
+    {
+        "id": "8a2509fe537f04ba",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "92f50b318f6e726b",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "DRM",
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "3f4d0554bd68a188",
+                "b429ea3541a30772"
+            ],
+            [
+                "93657dda22fa7e10"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "3f4d0554bd68a188",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "admin",
+        "func": "setTimeout(function () {\n    const hash = crypto.createHash('sha256').update(msg.payload.split(\":\")[1].trim() + \"random Test Fact Salted\").digest('hex');\n    global.set('hash', hash);\n    if (global.get('SHA').includes(hash)) {\n        node.send({ payload: `cp /home/root/.node-red/nr.tgz /home/root/nr.tgz` })\n        node.send({ payload: `cp -r /home/root/.node-red/app/ /home/root/app/` })\n        node.send({ payload:`npm --prefix /home/root/install install /home/root/nr.tgz`})\n    } else {\n    }\n}, 1000);",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "crypto",
+                "module": "crypto"
+            }
+        ],
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "fab19d51b2186915",
+                "28ad856d98ab408c"
+            ]
+        ]
+    },
+    {
+        "id": "2530ec9f6c24a4f4",
+        "type": "file in",
+        "z": "8a2509fe537f04ba",
+        "name": "load",
+        "filename": "path",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 530,
+        "y": 160,
+        "wires": [
+            [
+                "47e4d0feec1b36c1"
+            ]
+        ]
+    },
+    {
+        "id": "47e4d0feec1b36c1",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "func": "node.send(msg)\nvar i = msg.payload.split('\\n');\nvar b = [];\nfor (const element of i) {\n  b.push(element.trim());\n}\nglobal.set('SHA',b);\nmsg.payload = b\nnode.send(msg)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fab19d51b2186915",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "npm",
+        "x": 290,
+        "y": 360,
+        "wires": [
+            [
+                "47748512d45cb33a",
+                "a55b5b3a8df3b933"
+            ],
+            [
+                "073a5e8191ba91b7"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "47748512d45cb33a",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 1",
+        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/` })\n        node.send({ payload: `mv -v /home/root/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/` })\n        node.send({ payload: `mv -v /home/root/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js`})\n        node.send({ payload: `echo \"{ \"ip\": \"192.168.0.210\", \"digestUser\": \"service\", \"digestPass\": \"Admin123!\", \"make\": \"Bosch\", \"lines\": 6, \"options\": { \"x\": 0, \"y\": 255, \"trans\": true }, \"filter\": \"micros\" }\" > /home/root/.usrTemp` })\n    }\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 360,
+        "wires": [
+            [
+                "a1f2413306b455cc",
+                "ebed3bd8d9381843"
+            ]
+        ]
+    },
+    {
+        "id": "a1f2413306b455cc",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "cp",
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "1a8712242da76ab8",
+                "a48d2e654724d3f9"
+            ],
+            [
+                "61ce10db6df1c999"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f4befbcaaf4ed2f7",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 3",
+        "func": "if (msg.payload.length > 60000) {\n    setTimeout(function () {\n        node.send({ payload: `reboot` })\n    }, 1000);\n} else {\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "4a14260e08c00b72",
+                "7b0ed11d01705ee4"
+            ]
+        ]
+    },
+    {
+        "id": "4a14260e08c00b72",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "reboot",
+        "x": 670,
+        "y": 700,
+        "wires": [
+            [
+                "290b1aa99e186862"
+            ],
+            [
+                "1939a75dcaed1be9"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "ac27075cfb1b1c1d",
+        "type": "file in",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "filename": "/home/root/.node-red/flows.json",
+        "filenameType": "str",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 330,
+        "y": 620,
+        "wires": [
+            [
+                "f4befbcaaf4ed2f7",
+                "4e1d42bf944aeebf"
+            ]
+        ]
+    },
+    {
+        "id": "1a8712242da76ab8",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 4",
+        "func": "if(msg.payload.length !== 0){\n    return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 460,
+        "wires": [
+            [
+                "ed434df8a194c864",
+                "ac27075cfb1b1c1d"
+            ]
+        ]
+    },
+    {
+        "id": "7255d115c50bb4cf",
+        "type": "catch",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "scope": null,
+        "uncaught": false,
+        "x": 80,
+        "y": 20,
+        "wires": [
+            [
+                "9bb907c4830a6896"
+            ]
+        ]
+    },
+    {
+        "id": "9bb907c4830a6896",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "eb0d4cd7e9be3e26",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "b79ffcef82de787f",
+                "7dcf739e6088fb53"
+            ],
+            [
+                "dab50fbbba8cefed"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f4f5312bc63f81b2",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "cp",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "",
+        "payload": "mv -v /home/root/.node-red/app/SHA /home/root/.SHA",
+        "payloadType": "str",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "eb0d4cd7e9be3e26"
+            ]
+        ]
+    },
+    {
+        "id": "b79ffcef82de787f",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 5",
+        "func": "node.send({ payload: `cat /proc/cpuinfo | grep \"Serial\"`, path: `/home/root/.SHA` })",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "2530ec9f6c24a4f4",
+                "6ef7f853fe159851",
+                "592fb44ad261516a"
+            ]
+        ]
+    },
+    {
+        "id": "592fb44ad261516a",
+        "type": "delay",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "92f50b318f6e726b"
+            ]
+        ]
+    },
+    {
+        "id": "b429ea3541a30772",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "93657dda22fa7e10",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 620,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "28ad856d98ab408c",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 795.75,
+        "y": 257.75,
+        "wires": []
+    },
+    {
+        "id": "a55b5b3a8df3b933",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "073a5e8191ba91b7",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "ebed3bd8d9381843",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a48d2e654724d3f9",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "61ce10db6df1c999",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "ed434df8a194c864",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "dab50fbbba8cefed",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "7dcf739e6088fb53",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 13",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "6ef7f853fe159851",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 14",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 800,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2bcc5880a3293b02",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "echo \"182f4fa668d86cff630c376b8e5795ba296103a20b81686a8de8168ae93a83c5\" >> /home/root/.SHA",
+        "payloadType": "str",
+        "x": 290,
+        "y": 800,
+        "wires": [
+            [
+                "e92fc4003f71edf7"
+            ]
+        ]
+    },
+    {
+        "id": "e92fc4003f71edf7",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 450,
+        "y": 800,
+        "wires": [
+            [
+                "fa31a23af39efea2"
+            ],
+            [
+                "a0843ee0fd6eeafc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fa31a23af39efea2",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 15",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "a0843ee0fd6eeafc",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 16",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f1c1a70c7691454b",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "b8c7cf7a6c8b68b7"
+            ]
+        ]
+    },
+    {
+        "id": "53aa05bd679a7182",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "d59643bb01c4ae1f"
+            ],
+            [
+                "f9672b5fd22ed894"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f9672b5fd22ed894",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 17",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d59643bb01c4ae1f",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 18",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "290b1aa99e186862",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 19",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "1939a75dcaed1be9",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 20",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "4e1d42bf944aeebf",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 21",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7b0ed11d01705ee4",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "b8c7cf7a6c8b68b7",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 6",
+        "func": "node.send({payload:`echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\naddress 169.254.100.201\nnetmask 255.255.0.0\n\nauto enp1s0\niface enp1s0 inet static\naddress 192.168.0.20\nnetmask 255.255.255.0\n\" > /etc/network / interfaces`\n})",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "53aa05bd679a7182"
+            ]
+        ]
+    }
+]
