@@ -24,8 +24,8 @@ exit
 
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
-mkdir Yocto/
-cd Yocto/
+mkdir Yocto/ <br>
+cd Yocto/ <br>
 mkdir TDN-GSI-Radxa-cm3-Dunfell/
 cd TDN-GSI-Radxa-cm3-Dunfell/
 git clone -b dunfell git://git.openembedded.org/meta-openembedded
