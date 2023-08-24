@@ -1,4 +1,4 @@
-'''
+    '''
 sudo systemctl enable nodered.service
 sudo npm config set unsafe-perm true
 sudo systemctl unmask nodered.service
