@@ -1,6 +1,6 @@
 # meta-extras
 ## Raspberry Pi Langdale BSP
-cd ~/Yocto/Langdale/
+```cd ~/Yocto/Langdale/
 git clone -b langdale git://git.yoctoproject.org/poky.git
 git clone -b langdale git://git.yoctoproject.org/meta-raspberrypi.git
 git clone -b langdale git://git.openembedded.org/meta-openembedded
@@ -21,7 +21,7 @@ bzip2 -d -f core-image-base-raspberrypi0-2w.wic.bz2
 sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress conv=fsync
 cd ~/Yocto/build/
 exit
-
+```
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
 ```mkdir Yocto/ 
@@ -43,7 +43,7 @@ bitbake-layers add-layer ../meta-extras/
 bitbake-layers add-layer ../meta-radxa/
 bitbake -k radxa-console-image --runonly=fetch
 bitbake -k radxa-console-image```
-
+```
 #### Install rkdeveloptool
 git clone https://github.com/rockchip-linux/rkdeveloptool.git
 add rkdeveloptool to /bin PATH
