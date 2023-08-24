@@ -24,8 +24,8 @@ exit
 
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
-mkdir Yocto/ <br>
-cd Yocto/ <br>
+```mkdir Yocto/ 
+cd Yocto/ 
 mkdir TDN-GSI-Radxa-cm3-Dunfell/
 cd TDN-GSI-Radxa-cm3-Dunfell/
 git clone -b dunfell git://git.openembedded.org/meta-openembedded
@@ -42,7 +42,7 @@ bitbake-layers add-layer ../meta-python2/
 bitbake-layers add-layer ../meta-extras/
 bitbake-layers add-layer ../meta-radxa/
 bitbake -k radxa-console-image --runonly=fetch
-bitbake -k radxa-console-image
+bitbake -k radxa-console-image```
 
 #### Install rkdeveloptool
 git clone https://github.com/rockchip-linux/rkdeveloptool.git

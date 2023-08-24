@@ -7,9 +7,9 @@ MY_FILES = "${THISDIR}/nr-files"
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale \
            file://procscan.c"
 
-SRC_URI[sha256sum] = "5bce76250f8d9b257ef202c79a27967157b3b28f02a2b8300f964379ddb9aa50"
+SRC_URI[sha256sum] = "dfa511bb18139a375f77f5fbd87e97d6daf1d52749dfdb5111ee06cd0167f8a1"
 
-SRCREV = "299b83d9a92afb102a7d99162e8f11d3557d8a9d"
+SRCREV = "926a98008f981fb76234e09409b9a261d8988ce6"
 
 S = "${WORKDIR}"
 
