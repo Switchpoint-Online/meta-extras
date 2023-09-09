@@ -82,14 +82,16 @@ systemctl start node-red
 git clone -b kirkstone git://git.openembedded.org/meta-openembedded
 git clone -b kirkstone git://git.yoctoproject.org/poky.git
 git clone -b kirkstone git@github.com:Switchpoint-Online/meta-extras.git
+git clone -b kirkstone https://github.com/intel-iot-devkit/meta-iot-cloud.git
 source poky/oe-init-build-env
 bitbake-layers add-layer ../meta-openembedded/meta-oe
 bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 bitbake-layers add-layer ../meta-openembedded/meta-networking
 bitbake-layers add-layer ../meta-extras/
-bitbake console-image
-bitbake console-image --runonly=fetch
+bitbake-layers add-layer ../meta-iot-cloud/
+bitbake core-image-minimal --runonly=fetch
+bitbake core-image-minimal
 sudo dd bs=4M if=core-image-minimal-beaglebone-yocto.wic of=/dev/sde status=progress conv=fsync
 ```
 
@@ -98,9 +100,6 @@ sudo dd bs=4M if=core-image-minimal-beaglebone-yocto.wic of=/dev/sde status=prog
 su root
 ```
 cd ~/.node-red
-tar -xvf node-v16.20.2-linux-armv7l.tar.tar.xz
-cp -r node-v16.20.2-linux-armv7l.tar/{bin,include,lib,share} /usr/
-export PATH=/usr/node-v16.20.2-linux-armv7l.tar/bin:$PATH
 npm install -g --unsafe-perm node-red
 npm --prefix /home/root/install install /home/root/app/nr.tgz
 mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/
