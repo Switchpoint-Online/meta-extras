@@ -101,7 +101,7 @@ su root
 ```
 cd ~/app
 npm install -g --unsafe-perm node-red
-npm --prefix /home/root/install install /home/root/.node-red/nr.tgz
+npm --prefix /home/root/install install /home/root/.node-red/tdn-ftp_v2-0.0.1.tgz
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 mv -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
 mv -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
