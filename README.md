@@ -75,8 +75,24 @@ systemctl start node-red
 
 
 ## Beaglebone Black Dunfell BSP
-### Work in Progress
-#### TODO 
+### Work in Progress - kirkstone
+
+git clone -b kirkstone git://git.openembedded.org/meta-openembedded
+git clone -b kirkstone git://git.yoctoproject.org/poky.git
+git clone -b kirkstone git@github.com:Switchpoint-Online/meta-extras.git
+source poky/oe-init-build-env
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-extras/
+
+bitbake console-image
+bitbake console-image --runonly=fetch
+
+sudo dd bs=4M if=core-image-minimal-beaglebone-yocto.wic of=/dev/sde status=progress conv=fsync
+
+#### TODO - dunfell
 Added Nelson Robert Kernal and get Modprobe functional 
 
 cd Yocto/Dunfell/
@@ -100,7 +116,7 @@ bitbake-layers add-layer ../meta-qt5/
 bitbake-layers add-layer ../meta-security/
 bitbake-layers add-layer ../meta-extras/
 bitbake-layers add-layer ../meta-iot-cloud/
-bitbake console-image -n
+bitbake console-image
 bitbake console-image --runonly=fetch
 
 ./create_sdcard_image.sh 2 OETMP=/home/dev-env/Yocto/Dunfell/build/tmp/ /dev/sde
