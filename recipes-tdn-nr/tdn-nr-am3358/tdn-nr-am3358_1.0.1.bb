@@ -9,7 +9,7 @@ SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;b
 
 SRC_URI[sha256sum] = "0cd7aefd3cf592e82c875bde9341a92f6532dbef27d3f0cc96cf25be57c24264"
 
-SRCREV = "700bfd3acfba47752b0c464481ab2849bc84eb04"
+SRCREV = "272eb0b4d84e1b34e8411f59fc84b6f235bb6e19cd /app"
 
 S = "${WORKDIR}"
 
