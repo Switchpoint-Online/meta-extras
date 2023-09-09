@@ -98,9 +98,9 @@ sudo dd bs=4M if=core-image-minimal-beaglebone-yocto.wic of=/dev/sde status=prog
 su root
 ```
 cd ~/.node-red
-tar -xvf node-v16.20.1-linux-arm64.tar.xz
-cp -r node-v16.20.1-linux-arm64/{bin,include,lib,share} /usr/
-export PATH=/usr/node-v16.20.1-linux-arm64/bin:$PATH
+tar -xvf node-v16.20.2-linux-armv7l.tar.tar.xz
+cp -r node-v16.20.2-linux-armv7l.tar/{bin,include,lib,share} /usr/
+export PATH=/usr/node-v16.20.2-linux-armv7l.tar/bin:$PATH
 npm install -g --unsafe-perm node-red
 npm --prefix /home/root/install install /home/root/app/nr.tgz
 mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/
