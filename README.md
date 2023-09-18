@@ -22,6 +22,24 @@ sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress
 cd ~/Yocto/build/
 exit
 ```
+### setup security and install
+#### Run as root
+su root
+```
+useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
+chmod +x /usr/bin/procscan
+mv -v /home/root/app/app/SHA ~/.SHA
+<!-- npm install -g --unsafe-perm node-red -->
+npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
+mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+mv -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
+echo mv -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+mv -v /home/root/app/node-red.service /lib/systemd/system/node-red.service
+timedatectl set-ntp false
+systemctl daemon-reload
+systemctl enable node-red 
+systemctl start node-red
+```
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
 ```mkdir Yocto/ 
