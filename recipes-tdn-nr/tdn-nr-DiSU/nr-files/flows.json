@@ -19,12 +19,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "DRM",
-        "x": 270,
-        "y": 260,
+        "x": 230,
+        "y": 300,
         "wires": [
             [
-                "3f4d0554bd68a188",
-                "b429ea3541a30772"
+                "3f4d0554bd68a188"
             ],
             [
                 "93657dda22fa7e10"
@@ -48,12 +47,12 @@
                 "module": "crypto"
             }
         ],
-        "x": 410,
-        "y": 260,
+        "x": 370,
+        "y": 340,
         "wires": [
             [
                 "fab19d51b2186915",
-                "28ad856d98ab408c"
+                "9686a1ebbb1695e5"
             ]
         ]
     },
@@ -70,7 +69,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 530,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "47e4d0feec1b36c1"
@@ -89,7 +88,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 160,
+        "y": 240,
         "wires": [
             []
         ]
@@ -106,12 +105,11 @@
         "winHide": false,
         "oldrc": false,
         "name": "npm",
-        "x": 290,
-        "y": 360,
+        "x": 230,
+        "y": 380,
         "wires": [
             [
-                "47748512d45cb33a",
-                "a55b5b3a8df3b933"
+                "47748512d45cb33a"
             ],
             [
                 "073a5e8191ba91b7"
@@ -124,18 +122,18 @@
         "type": "function",
         "z": "8a2509fe537f04ba",
         "name": "function 1",
-        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/` })\n        node.send({ payload: `mv -v /home/root/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/` })\n        node.send({ payload: `mv -v /home/root/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js`})\n        node.send({ payload: `echo \"{ \"ip\": \"192.168.0.210\", \"digestUser\": \"service\", \"digestPass\": \"Admin123!\", \"make\": \"Bosch\", \"lines\": 6, \"options\": { \"x\": 0, \"y\": 255, \"trans\": true }, \"filter\": \"micros\" }\" > /home/root/.usrTemp` })\n    }\n}",
+        "func": "if (msg.payload.length !== 0) {\n    if (msg.payload = msg.payload.split(\" \")[0].replace(/\\n/g, \"\").replace(/\\r/g, \"\") === \"added\") {\n        node.send({ payload: `rm -r /home/root/.node-red` })\n        node.send({ payload: `cp -r /home/root/install/node_modules/tdn-disu_v2/ /home/root/.node-red/` })\n        node.send({ payload: `cp -v /home/root/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js`})\n        node.send({ payload: `echo \"{ \"ip\": \"192.168.100.7\", \"digestUser\": \"admin\", \"digestPass\": \"Hikvision1234\", \"make\": \"Hikvision\", \"lines\": 4, \"options\": { \"x\": 0, \"y\": 255, \"trans\": true }, \"filter\": \"micros\" }\" > /home/root/.usrTemp` })\n    }\n}",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 440,
-        "y": 360,
+        "x": 380,
+        "y": 420,
         "wires": [
             [
-                "a1f2413306b455cc",
-                "ebed3bd8d9381843"
+                "ebed3bd8d9381843",
+                "a1f2413306b455cc"
             ]
         ]
     },
@@ -151,8 +149,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "cp",
-        "x": 310,
-        "y": 460,
+        "x": 230,
+        "y": 500,
         "wires": [
             [
                 "1a8712242da76ab8",
@@ -175,7 +173,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
+        "x": 380,
         "y": 620,
         "wires": [
             [
@@ -196,8 +194,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "reboot",
-        "x": 670,
-        "y": 700,
+        "x": 230,
+        "y": 680,
         "wires": [
             [
                 "290b1aa99e186862"
@@ -220,8 +218,8 @@
         "sendError": false,
         "encoding": "none",
         "allProps": false,
-        "x": 330,
-        "y": 620,
+        "x": 170,
+        "y": 600,
         "wires": [
             [
                 "f4befbcaaf4ed2f7",
@@ -240,8 +238,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 460,
-        "y": 460,
+        "x": 380,
+        "y": 540,
         "wires": [
             [
                 "ed434df8a194c864",
@@ -294,11 +292,10 @@
         "oldrc": false,
         "name": "",
         "x": 230,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
-                "b79ffcef82de787f",
-                "7dcf739e6088fb53"
+                "b79ffcef82de787f"
             ],
             [
                 "dab50fbbba8cefed"
@@ -314,10 +311,6 @@
         "props": [
             {
                 "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
             }
         ],
         "repeat": "",
@@ -325,10 +318,10 @@
         "once": true,
         "onceDelay": "1",
         "topic": "",
-        "payload": "mv -v /home/root/.node-red/app/SHA /home/root/.SHA",
+        "payload": "cp -v /home/root/.node-red/app/SHA /home/root/.SHA",
         "payloadType": "str",
         "x": 90,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "eb0d4cd7e9be3e26"
@@ -347,11 +340,10 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 160,
+        "y": 240,
         "wires": [
             [
                 "2530ec9f6c24a4f4",
-                "6ef7f853fe159851",
                 "592fb44ad261516a"
             ]
         ]
@@ -373,30 +365,13 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 140,
-        "y": 260,
+        "x": 100,
+        "y": 300,
         "wires": [
             [
                 "92f50b318f6e726b"
             ]
         ]
-    },
-    {
-        "id": "b429ea3541a30772",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 220,
-        "wires": []
     },
     {
         "id": "93657dda22fa7e10",
@@ -411,42 +386,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "28ad856d98ab408c",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 5",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 795.75,
-        "y": 257.75,
-        "wires": []
-    },
-    {
-        "id": "a55b5b3a8df3b933",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 6",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 340,
+        "x": 380,
+        "y": 300,
         "wires": []
     },
     {
@@ -462,8 +403,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 400,
+        "x": 380,
+        "y": 380,
         "wires": []
     },
     {
@@ -479,8 +420,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 360,
+        "x": 520,
+        "y": 420,
         "wires": []
     },
     {
@@ -496,8 +437,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 440,
+        "x": 380,
+        "y": 460,
         "wires": []
     },
     {
@@ -513,7 +454,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 380,
         "y": 500,
         "wires": []
     },
@@ -530,8 +471,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 480,
+        "x": 520,
+        "y": 540,
         "wires": []
     },
     {
@@ -547,42 +488,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 600,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "7dcf739e6088fb53",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 13",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 60,
-        "wires": []
-    },
-    {
-        "id": "6ef7f853fe159851",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 14",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 800,
-        "y": 100,
+        "x": 380,
+        "y": 200,
         "wires": []
     },
     {
@@ -606,8 +513,8 @@
         "topic": "",
         "payload": "echo \"182f4fa668d86cff630c376b8e5795ba296103a20b81686a8de8168ae93a83c5\" >> /home/root/.SHA",
         "payloadType": "str",
-        "x": 290,
-        "y": 800,
+        "x": 150,
+        "y": 1040,
         "wires": [
             [
                 "e92fc4003f71edf7"
@@ -626,8 +533,8 @@
         "winHide": false,
         "oldrc": false,
         "name": "",
-        "x": 450,
-        "y": 800,
+        "x": 310,
+        "y": 1040,
         "wires": [
             [
                 "fa31a23af39efea2"
@@ -650,8 +557,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 760,
+        "x": 500,
+        "y": 1000,
         "wires": []
     },
     {
@@ -666,8 +573,8 @@
         "complete": "false",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 800,
+        "x": 500,
+        "y": 1040,
         "wires": []
     },
     {
@@ -714,48 +621,10 @@
         "x": 390,
         "y": 80,
         "wires": [
-            [
-                "d59643bb01c4ae1f"
-            ],
-            [
-                "f9672b5fd22ed894"
-            ],
+            [],
+            [],
             []
         ]
-    },
-    {
-        "id": "f9672b5fd22ed894",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 17",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "d59643bb01c4ae1f",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 18",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "290b1aa99e186862",
@@ -770,8 +639,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 680,
+        "x": 380,
+        "y": 660,
         "wires": []
     },
     {
@@ -787,8 +656,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 720,
+        "x": 380,
+        "y": 700,
         "wires": []
     },
     {
@@ -804,7 +673,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 580,
+        "x": 380,
         "y": 580,
         "wires": []
     },
@@ -821,7 +690,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 740,
+        "x": 520,
         "y": 620,
         "wires": []
     },
@@ -830,7 +699,7 @@
         "type": "function",
         "z": "8a2509fe537f04ba",
         "name": "function 6",
-        "func": "node.send({payload:`echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\naddress 169.254.100.201\nnetmask 255.255.0.0\n\nauto enp1s0\niface enp1s0 inet static\naddress 192.168.0.20\nnetmask 255.255.255.0\n\" > /etc/network / interfaces`\n})",
+        "func": "node.send({payload:`echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\naddress 192.168.100.155\nnetmask 255.255.255.0\n\" > /etc/network/interfaces`\n})",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -843,5 +712,71 @@
                 "53aa05bd679a7182"
             ]
         ]
+    },
+    {
+        "id": "be8ed53b40564687",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "a29b38664a5dd9b4",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "chmod +x /usr/bin/procscan",
+        "payloadType": "str",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "be8ed53b40564687"
+            ]
+        ]
+    },
+    {
+        "id": "9686a1ebbb1695e5",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 23",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 340,
+        "wires": []
     }
 ]
