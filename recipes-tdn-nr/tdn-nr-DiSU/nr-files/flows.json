@@ -20,7 +20,7 @@
         "oldrc": false,
         "name": "DRM",
         "x": 230,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "3f4d0554bd68a188"
@@ -48,7 +48,7 @@
             }
         ],
         "x": 370,
-        "y": 340,
+        "y": 400,
         "wires": [
             [
                 "fab19d51b2186915",
@@ -69,7 +69,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 530,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "47e4d0feec1b36c1"
@@ -88,7 +88,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 240,
+        "y": 300,
         "wires": [
             []
         ]
@@ -106,7 +106,7 @@
         "oldrc": false,
         "name": "npm",
         "x": 230,
-        "y": 380,
+        "y": 440,
         "wires": [
             [
                 "47748512d45cb33a"
@@ -129,7 +129,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 420,
+        "y": 480,
         "wires": [
             [
                 "ebed3bd8d9381843",
@@ -150,7 +150,7 @@
         "oldrc": false,
         "name": "cp",
         "x": 230,
-        "y": 500,
+        "y": 560,
         "wires": [
             [
                 "1a8712242da76ab8",
@@ -174,7 +174,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 620,
+        "y": 680,
         "wires": [
             [
                 "4a14260e08c00b72",
@@ -195,7 +195,7 @@
         "oldrc": false,
         "name": "reboot",
         "x": 230,
-        "y": 680,
+        "y": 740,
         "wires": [
             [
                 "290b1aa99e186862"
@@ -219,7 +219,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 170,
-        "y": 600,
+        "y": 660,
         "wires": [
             [
                 "f4befbcaaf4ed2f7",
@@ -239,7 +239,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "ed434df8a194c864",
@@ -292,7 +292,7 @@
         "oldrc": false,
         "name": "",
         "x": 230,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "b79ffcef82de787f"
@@ -315,13 +315,13 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": true,
+        "once": false,
         "onceDelay": "1",
         "topic": "",
         "payload": "cp -v /home/root/.node-red/app/SHA /home/root/.SHA",
         "payloadType": "str",
         "x": 90,
-        "y": 200,
+        "y": 260,
         "wires": [
             [
                 "eb0d4cd7e9be3e26"
@@ -340,7 +340,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 240,
+        "y": 300,
         "wires": [
             [
                 "2530ec9f6c24a4f4",
@@ -366,7 +366,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 100,
-        "y": 300,
+        "y": 360,
         "wires": [
             [
                 "92f50b318f6e726b"
@@ -387,7 +387,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 300,
+        "y": 360,
         "wires": []
     },
     {
@@ -404,7 +404,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 380,
+        "y": 440,
         "wires": []
     },
     {
@@ -421,7 +421,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 420,
+        "y": 480,
         "wires": []
     },
     {
@@ -438,7 +438,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 460,
+        "y": 520,
         "wires": []
     },
     {
@@ -455,7 +455,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 500,
+        "y": 560,
         "wires": []
     },
     {
@@ -472,7 +472,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 540,
+        "y": 600,
         "wires": []
     },
     {
@@ -489,7 +489,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 200,
+        "y": 260,
         "wires": []
     },
     {
@@ -640,7 +640,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 660,
+        "y": 720,
         "wires": []
     },
     {
@@ -657,7 +657,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 700,
+        "y": 760,
         "wires": []
     },
     {
@@ -674,7 +674,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 580,
+        "y": 640,
         "wires": []
     },
     {
@@ -691,7 +691,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 620,
+        "y": 680,
         "wires": []
     },
     {
@@ -726,7 +726,7 @@
         "oldrc": false,
         "name": "",
         "x": 230,
-        "y": 140,
+        "y": 200,
         "wires": [
             [],
             [],
@@ -755,7 +755,7 @@
         "payload": "chmod +x /usr/bin/procscan",
         "payloadType": "str",
         "x": 90,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "be8ed53b40564687"
@@ -776,7 +776,56 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 340,
+        "y": 400,
         "wires": []
+    },
+    {
+        "id": "61171e6602de03d3",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 230,
+        "y": 140,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "5fd233acc2d9174f",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hostnamectl set-hostname \"iFace4\"",
+        "payloadType": "str",
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "61171e6602de03d3"
+            ]
+        ]
     }
 ]
