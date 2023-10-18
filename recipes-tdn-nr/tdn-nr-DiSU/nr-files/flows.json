@@ -20,7 +20,7 @@
         "oldrc": false,
         "name": "DRM",
         "x": 230,
-        "y": 360,
+        "y": 540,
         "wires": [
             [
                 "3f4d0554bd68a188"
@@ -48,7 +48,7 @@
             }
         ],
         "x": 370,
-        "y": 400,
+        "y": 580,
         "wires": [
             [
                 "fab19d51b2186915",
@@ -69,7 +69,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 530,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "47e4d0feec1b36c1"
@@ -88,7 +88,7 @@
         "finalize": "",
         "libs": [],
         "x": 660,
-        "y": 300,
+        "y": 480,
         "wires": [
             []
         ]
@@ -106,7 +106,7 @@
         "oldrc": false,
         "name": "npm",
         "x": 230,
-        "y": 440,
+        "y": 620,
         "wires": [
             [
                 "47748512d45cb33a"
@@ -129,7 +129,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 480,
+        "y": 660,
         "wires": [
             [
                 "ebed3bd8d9381843",
@@ -150,7 +150,7 @@
         "oldrc": false,
         "name": "cp",
         "x": 230,
-        "y": 560,
+        "y": 740,
         "wires": [
             [
                 "1a8712242da76ab8",
@@ -174,11 +174,11 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 680,
+        "y": 860,
         "wires": [
             [
-                "4a14260e08c00b72",
-                "7b0ed11d01705ee4"
+                "7b0ed11d01705ee4",
+                "22db97f24693140f"
             ]
         ]
     },
@@ -195,7 +195,7 @@
         "oldrc": false,
         "name": "reboot",
         "x": 230,
-        "y": 740,
+        "y": 1000,
         "wires": [
             [
                 "290b1aa99e186862"
@@ -219,7 +219,7 @@
         "encoding": "none",
         "allProps": false,
         "x": 170,
-        "y": 660,
+        "y": 840,
         "wires": [
             [
                 "f4befbcaaf4ed2f7",
@@ -239,7 +239,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 600,
+        "y": 780,
         "wires": [
             [
                 "ed434df8a194c864",
@@ -292,7 +292,7 @@
         "oldrc": false,
         "name": "",
         "x": 230,
-        "y": 260,
+        "y": 440,
         "wires": [
             [
                 "b79ffcef82de787f"
@@ -321,7 +321,7 @@
         "payload": "cp -v /home/root/.node-red/app/SHA /home/root/.SHA",
         "payloadType": "str",
         "x": 90,
-        "y": 260,
+        "y": 440,
         "wires": [
             [
                 "eb0d4cd7e9be3e26"
@@ -340,7 +340,7 @@
         "finalize": "",
         "libs": [],
         "x": 380,
-        "y": 300,
+        "y": 480,
         "wires": [
             [
                 "2530ec9f6c24a4f4",
@@ -366,7 +366,7 @@
         "allowrate": false,
         "outputs": 1,
         "x": 100,
-        "y": 360,
+        "y": 540,
         "wires": [
             [
                 "92f50b318f6e726b"
@@ -387,7 +387,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 360,
+        "y": 540,
         "wires": []
     },
     {
@@ -404,7 +404,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 440,
+        "y": 620,
         "wires": []
     },
     {
@@ -421,7 +421,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 480,
+        "y": 660,
         "wires": []
     },
     {
@@ -438,7 +438,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 520,
+        "y": 700,
         "wires": []
     },
     {
@@ -455,7 +455,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 560,
+        "y": 740,
         "wires": []
     },
     {
@@ -472,7 +472,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 600,
+        "y": 780,
         "wires": []
     },
     {
@@ -489,7 +489,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 260,
+        "y": 440,
         "wires": []
     },
     {
@@ -514,7 +514,7 @@
         "payload": "echo \"182f4fa668d86cff630c376b8e5795ba296103a20b81686a8de8168ae93a83c5\" >> /home/root/.SHA",
         "payloadType": "str",
         "x": 150,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "e92fc4003f71edf7"
@@ -534,7 +534,7 @@
         "oldrc": false,
         "name": "",
         "x": 310,
-        "y": 1040,
+        "y": 1100,
         "wires": [
             [
                 "fa31a23af39efea2"
@@ -558,7 +558,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
-        "y": 1000,
+        "y": 1060,
         "wires": []
     },
     {
@@ -574,7 +574,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
-        "y": 1040,
+        "y": 1100,
         "wires": []
     },
     {
@@ -640,7 +640,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 720,
+        "y": 980,
         "wires": []
     },
     {
@@ -657,7 +657,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 760,
+        "y": 1020,
         "wires": []
     },
     {
@@ -674,7 +674,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 640,
+        "y": 820,
         "wires": []
     },
     {
@@ -691,7 +691,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 680,
+        "y": 860,
         "wires": []
     },
     {
@@ -724,9 +724,9 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 230,
-        "y": 200,
+        "name": "Procscan",
+        "x": 240,
+        "y": 380,
         "wires": [
             [],
             [],
@@ -755,7 +755,7 @@
         "payload": "chmod +x /usr/bin/procscan",
         "payloadType": "str",
         "x": 90,
-        "y": 200,
+        "y": 380,
         "wires": [
             [
                 "be8ed53b40564687"
@@ -776,7 +776,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 400,
+        "y": 580,
         "wires": []
     },
     {
@@ -790,8 +790,8 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 230,
+        "name": "hostname",
+        "x": 240,
         "y": 140,
         "wires": [
             [],
@@ -827,5 +827,325 @@
                 "61171e6602de03d3"
             ]
         ]
+    },
+    {
+        "id": "4db7be14e1696ed0",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "adduser",
+        "x": 240,
+        "y": 200,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "33688f5aa687b8bb",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "mkdir -p {/home/config/ipdev/config,/home/config/ipdev/logs,/home/config/ipdev/update}",
+        "payloadType": "str",
+        "x": 90,
+        "y": 260,
+        "wires": [
+            [
+                "d587473a65d03463"
+            ]
+        ]
+    },
+    {
+        "id": "d587473a65d03463",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "ipdev",
+        "x": 230,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "6ee231bde439af44",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.5",
+        "topic": "",
+        "payload": "chown -R config:config /home/config/ipdev/",
+        "payloadType": "str",
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "b3e132a6251c7478"
+            ]
+        ]
+    },
+    {
+        "id": "b3e132a6251c7478",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "config",
+        "x": 510,
+        "y": 260,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "22db97f24693140f",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 7",
+        "func": "msg.payload = `Enable Device: 1\nType: 1\n\t(1=Legacy Models, 2=2020 onwards)\n\nCameraIP: 192.168.100.155\nUsername: admin\nPassword: Hikvision1234\n*** A V O I D special characters ie: / , @ , : , \\ others should be okay ***\nline 1 Y: 70\nline 2 Y: 100\nline 3 Y: 130\nline 4 Y: 160\nX Offset: 25\n*** Dwell Must be smaller than ClearTimer ***\nDwellTimer: 10\nClearTimer: 30\nScroll Pacing uSec: 1000\nSmart Format: 1\n*** Ensure space after colon, then string to exclude, with no spaces after ***\nfilter 01: ----------\n....\nfilter 12: VAT No:\n\n\n`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 920,
+        "wires": [
+            [
+                "e6ce86898c1c5cb1"
+            ]
+        ]
+    },
+    {
+        "id": "e6ce86898c1c5cb1",
+        "type": "file",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "filename": "/home/config/ipdev/config/camconfig.txt",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 360,
+        "y": 920,
+        "wires": [
+            [
+                "4a14260e08c00b72"
+            ]
+        ]
+    },
+    {
+        "id": "dc69dc0c6b2165f9",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "smbpasswd -a config",
+        "x": 700,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bf26928ffeb42986",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "useradd -M -s /sbin/nologin config",
+        "payloadType": "str",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "4db7be14e1696ed0"
+            ]
+        ]
+    },
+    {
+        "id": "2acd19ba362db9e9",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "useradd -p $(echo r8 | openssl passwd -1 -stdin) config",
+        "payloadType": "str",
+        "x": 650,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "522ceae7a7cb06f0",
+        "type": "inject",
+        "z": "8a2509fe537f04ba",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 320,
+        "wires": [
+            [
+                "fdabb951dce5e104"
+            ]
+        ]
+    },
+    {
+        "id": "fdabb951dce5e104",
+        "type": "function",
+        "z": "8a2509fe537f04ba",
+        "name": "function 8",
+        "func": "msg.payload = `echo \"[global]\n        log file = /var/log/samba/%m\n        log level = 1\n        server role = standalone server\n\n[config]\n        # This share requires authentication to access\n        path = /home/config/ipdev/config/\n        read only = no\n        inherit permissions = yes\n\n[update]\n        # This share requires authentication to access\n        path = /home/config/ipdev/update/\n        read only = no\n        inherit permissions = yes\" > /etc/samba/smb.conf`\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 320,
+        "wires": [
+            [
+                "051a9852023fb8b2"
+            ]
+        ]
+    },
+    {
+        "id": "051a9852023fb8b2",
+        "type": "exec",
+        "z": "8a2509fe537f04ba",
+        "command": "",
+        "addpay": "payload",
+        "append": "",
+        "useSpawn": "false",
+        "timer": "",
+        "winHide": false,
+        "oldrc": false,
+        "name": "",
+        "x": 370,
+        "y": 320,
+        "wires": [
+            [
+                "e88e02083d31cebe"
+            ],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "e88e02083d31cebe",
+        "type": "debug",
+        "z": "8a2509fe537f04ba",
+        "name": "debug 24",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 320,
+        "wires": []
     }
 ]
