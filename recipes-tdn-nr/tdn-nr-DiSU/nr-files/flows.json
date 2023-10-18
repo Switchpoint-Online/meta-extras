@@ -624,7 +624,7 @@
         "type": "function",
         "z": "8a2509fe537f04ba",
         "name": "function 6",
-        "func": "node.send({payload:`echo \"auto lo\niface lo inet loopback\n\nauto eth0\niface eth0 inet static\naddress 192.168.100.155\nnetmask 255.255.255.0\n\" > /etc/network/interfaces`\n})",
+        "func": "node.send({payload:`echo \"auto lo\n iface lo inet loopback\n auto eth0\n iface eth0 inet static\n\n address 192.168.100.150\n netmask 255.255.0.0\n gateway 192.168.100.1\n\n\" > /etc/network/interfaces`\n})",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
