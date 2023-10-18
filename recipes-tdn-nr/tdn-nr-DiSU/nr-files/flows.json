@@ -163,31 +163,11 @@
         ]
     },
     {
-        "id": "f4befbcaaf4ed2f7",
-        "type": "function",
-        "z": "8a2509fe537f04ba",
-        "name": "function 3",
-        "func": "if (msg.payload.length > 60000) {\n    setTimeout(function () {\n        node.send({ payload: `reboot` })\n    }, 1000);\n} else {\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 380,
-        "y": 860,
-        "wires": [
-            [
-                "7b0ed11d01705ee4",
-                "22db97f24693140f"
-            ]
-        ]
-    },
-    {
         "id": "4a14260e08c00b72",
         "type": "exec",
         "z": "8a2509fe537f04ba",
-        "command": "",
-        "addpay": "payload",
+        "command": "reboot",
+        "addpay": "",
         "append": "",
         "useSpawn": "false",
         "timer": "",
@@ -195,7 +175,7 @@
         "oldrc": false,
         "name": "reboot",
         "x": 230,
-        "y": 1000,
+        "y": 920,
         "wires": [
             [
                 "290b1aa99e186862"
@@ -204,27 +184,6 @@
                 "1939a75dcaed1be9"
             ],
             []
-        ]
-    },
-    {
-        "id": "ac27075cfb1b1c1d",
-        "type": "file in",
-        "z": "8a2509fe537f04ba",
-        "name": "",
-        "filename": "/home/root/.node-red/flows.json",
-        "filenameType": "str",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "none",
-        "allProps": false,
-        "x": 170,
-        "y": 840,
-        "wires": [
-            [
-                "f4befbcaaf4ed2f7",
-                "4e1d42bf944aeebf"
-            ]
         ]
     },
     {
@@ -243,7 +202,7 @@
         "wires": [
             [
                 "ed434df8a194c864",
-                "ac27075cfb1b1c1d"
+                "22db97f24693140f"
             ]
         ]
     },
@@ -315,7 +274,7 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
+        "once": true,
         "onceDelay": "1",
         "topic": "",
         "payload": "cp -v /home/root/.node-red/app/SHA /home/root/.SHA",
@@ -514,7 +473,7 @@
         "payload": "echo \"182f4fa668d86cff630c376b8e5795ba296103a20b81686a8de8168ae93a83c5\" >> /home/root/.SHA",
         "payloadType": "str",
         "x": 150,
-        "y": 1100,
+        "y": 1020,
         "wires": [
             [
                 "e92fc4003f71edf7"
@@ -534,7 +493,7 @@
         "oldrc": false,
         "name": "",
         "x": 310,
-        "y": 1100,
+        "y": 1020,
         "wires": [
             [
                 "fa31a23af39efea2"
@@ -558,7 +517,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
-        "y": 1060,
+        "y": 980,
         "wires": []
     },
     {
@@ -574,7 +533,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
-        "y": 1100,
+        "y": 1020,
         "wires": []
     },
     {
@@ -640,7 +599,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 980,
+        "y": 900,
         "wires": []
     },
     {
@@ -657,41 +616,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 380,
-        "y": 1020,
-        "wires": []
-    },
-    {
-        "id": "4e1d42bf944aeebf",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 21",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 820,
-        "wires": []
-    },
-    {
-        "id": "7b0ed11d01705ee4",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 22",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 860,
+        "y": 940,
         "wires": []
     },
     {
@@ -958,7 +883,7 @@
         "finalize": "",
         "libs": [],
         "x": 120,
-        "y": 920,
+        "y": 840,
         "wires": [
             [
                 "e6ce86898c1c5cb1"
@@ -977,7 +902,7 @@
         "overwriteFile": "true",
         "encoding": "none",
         "x": 360,
-        "y": 920,
+        "y": 840,
         "wires": [
             [
                 "4a14260e08c00b72"
@@ -1078,12 +1003,12 @@
         ],
         "repeat": "",
         "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
+        "once": true,
+        "onceDelay": "1",
         "topic": "",
         "payload": "",
         "payloadType": "date",
-        "x": 100,
+        "x": 110,
         "y": 320,
         "wires": [
             [
@@ -1102,7 +1027,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 240,
+        "x": 260,
         "y": 320,
         "wires": [
             [
@@ -1121,31 +1046,13 @@
         "timer": "",
         "winHide": false,
         "oldrc": false,
-        "name": "",
-        "x": 370,
+        "name": "smb config",
+        "x": 410,
         "y": 320,
         "wires": [
-            [
-                "e88e02083d31cebe"
-            ],
+            [],
             [],
             []
         ]
-    },
-    {
-        "id": "e88e02083d31cebe",
-        "type": "debug",
-        "z": "8a2509fe537f04ba",
-        "name": "debug 24",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 320,
-        "wires": []
     }
 ]
