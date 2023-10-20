@@ -1,1 +1,29 @@
 6fd4ee958ebc36ece4794a2ce9fa5a11cd246dd1365be83d5610723fb8111565
+
+cat /proc/cpuinfo | grep "Serial"
+
+Serial          : 0000000060475876
+Serial          : 00000000bfa2f4f0
+Serial          : 00000000d3a8b6b1
+Serial          : 000000002636817d
+Serial          : 000000004a0f143b
+Serial          : 00000000fd2df85e
+Serial          : 0000000010457fd2
+Serial          : 00000000f28c5815
+Serial          : 00000000c8bc47c7
+Serial          : 00000000f19dd981
+Serial          : 00000000982f2d93
+Serial          : 00000000870189d6
+Serial          : 00000000bccfa0a9
+Serial          : 00000000dabe9831
+Serial          : 000000006ca3aa59
+Serial          : 000000001b47d3ab
+Serial          : 0000000050ba3b97
+Serial          : 000000005d3534c8
+Serial          : 00000000f5840226
+Serial          : 000000001e184dd0
+Serial          : 000000001442eec1
+Serial          : 00000000bc511526
+Serial          : 000000002824413a
+Serial          : 00000000a56eab8b
+Serial          : 000000006108e619

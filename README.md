@@ -55,6 +55,12 @@ npm --prefix /home/root/install install /home/root/app/tdn-disu_v2-2.0.2.tgz
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp 21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 ```
+# Clone SD Card and add Serial to DRM
+```
+sudo dd if=/dev/sde of=TDN-DiSU_v1.img status=progress
+```
+
+
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
 ```mkdir Yocto/ 
