@@ -23,7 +23,7 @@ do_install() {
     cp -R ${MY_FILES}/* ${D}/home/root/.node-red
     install -m 0755 -d ${D}${bindir} ${D}${docdir}/procscan
     install -m 0644 ${S}/procscan ${D}${bindir}
-    install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
+    # install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
 }
 
 FILES:${PN} = "/home/root/.node-red"
