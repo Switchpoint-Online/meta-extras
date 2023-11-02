@@ -41,7 +41,7 @@ mv -v /home/root/app/app/SHA ~/.SHA
 npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp 21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
 ```
 ### setup security and install DiSU NODE
