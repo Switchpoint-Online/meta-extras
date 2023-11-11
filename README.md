@@ -47,6 +47,19 @@ cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules
 cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
 ```
+### AP Configuration PRI
+#### NMCLI 
+```
+nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
+nmcli c down B26A24
+nmcli d wifi hotspot ifname wlan0 ssid TDN-Portal password "LOGtn63u"
+nmcli connection modify Hotspot 802-11-wireless.mode ap 802-11-wireless.band bg
+nmcli connection modify Hotspot wifi-sec.key-mgmt wpa-psk
+nmcli connection modify Hotspot wifi-sec.psk LOGtn63u
+nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24 ipv4.gateway 192.168.4.1 ipv4.dns 192.168.4.1
+nmcli c up Hotspot
+```
+
 ### setup security and install DiSU NODE
 #### Run as root
 su root
@@ -166,7 +179,19 @@ Added Nelson Robert Kernal and get Modprobe functional
                     let digestCreds = {"user":digestUser,"password":digestPass};
 ```
 
-# DiSU Replacement Software
+# AP Configuration PRI
+## NMCLI 
 ```
+nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
+nmcli c down B26A24
+nmcli d wifi hotspot ifname wlan0 ssid TDN-Portal password "LOGtn63u"
+nmcli connection modify Hotspot 802-11-wireless.mode ap 802-11-wireless.band bg
+nmcli connection modify Hotspot wifi-sec.key-mgmt wpa-psk
+nmcli connection modify Hotspot wifi-sec.psk LOGtn63u
+nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24 ipv4.gateway 192.168.4.1 ipv4.dns 192.168.4.1
+nmcli c up Hotspot
+
 
 ```
+
+
