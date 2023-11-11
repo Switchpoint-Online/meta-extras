@@ -35,11 +35,14 @@ exit
 #### Run as root
 su root
 ```
+hostnamectl set-hostname "TDN-GSIv3"
+nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
-cp -v /home/root/app/app/SHA ~/.SHA
+mv -v /home/root/app/app/SHA ~/.SHA
 npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
-cp /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+rm -r /home/root/.node-red/
+mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
 cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
@@ -106,11 +109,11 @@ sudo cp -r node-v16.20.1-linux-arm64/{bin,include,lib,share} /usr/
 export PATH=/usr/node-v16.20.1-linux-arm64/bin:$PATH
 sudo npm install -g --unsafe-perm node-red
 npm --prefix /home/root/install install /home/root/app/nr.tgz
-cp -rv /home/root/install/node_modules/tdn-bcd_v2/ /home/root/.node-red/
-cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
-cp -v node-red.service /lib/systemd/system/node-red.service
-cp -v /home/root/app/app/SHA ~/.SHA
+mv /home/root/install/node_modules/node-red-project/ /home/root/.node-red/
+mv -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
+mv -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+mv -v node-red.service /lib/systemd/system/node-red.service
+mv -v /home/root/app/app/SHA ~/.SHA
 systemctl daemon-reload
 systemctl enable node-red 
 systemctl start node-red
