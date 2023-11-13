@@ -5,12 +5,12 @@ LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale \
-           file://procscan.c"\
+           file://procscan.c \
            file://gpioScan.c"
 
 SRC_URI[sha256sum] = "5bce76250f8d9b257ef202c79a27967157b3b28f02a2b8300f964379ddb9aa50"
 
-SRCREV = "68eb09d36373d077b0fb3704a88e4dad902dd5f1"
+SRCREV = "3e7d24d61e9bbab11449d8a83f20f47c4423c0b0"
 
 S = "${WORKDIR}"
 
