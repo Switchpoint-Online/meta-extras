@@ -15,6 +15,7 @@ S = "${WORKDIR}"
 
 do_compile() {
         ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/procscan.c -o procscan
+        ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/gpio.c -o gpio
 }
 
 do_install() {
@@ -23,6 +24,8 @@ do_install() {
     cp -R ${MY_FILES}/* ${D}/home/root/.node-red
     install -m 0755 -d ${D}${bindir} ${D}${docdir}/procscan
     install -m 0644 ${S}/procscan ${D}${bindir}
+    install -m 0755 -d ${D}${bindir} ${D}${docdir}/gpio
+    install -m 0644 ${S}/gpio ${D}${bindir}
     # install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
 }
 
