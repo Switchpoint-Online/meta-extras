@@ -35,8 +35,14 @@ exit
 #### Run as root
 su root
 ```
-hostnamectl set-hostname "TDN-GSIv3"
+hostnamectl set-hostname "TDN-ETHv2"
 nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
+nmcli c down B26A24
+nmcli d wifi hotspot ifname wlan0 ssid TDN-Portal password "LOGtn63u"
+nmcli connection modify Hotspot 802-11-wireless.mode ap 802-11-wireless.band bg
+nmcli connection modify Hotspot wifi-sec.key-mgmt wpa-psk
+nmcli connection modify Hotspot wifi-sec.psk LOGtn63u
+nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24 ipv4.gateway 192.168.4.1 ipv4.dns 192.168.4.1
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
