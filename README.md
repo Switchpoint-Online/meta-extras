@@ -35,7 +35,7 @@ exit
 #### Run as root
 su root
 ```
-hostnamectl set-hostname "TDN-ETHv2"
+hostnamectl set-hostname "TDN-ETHv3"
 nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
 nmcli c down B26A24
 nmcli d wifi hotspot ifname wlan0 ssid TDN-Portal password "LOGtn63u"
@@ -73,7 +73,8 @@ su root
 useradd -p $(echo r8 | openssl passwd -1 -stdin) config
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
-npm --prefix /home/root/install install /home/root/app/tdn-disu_v2-2.0.2.tgz
+npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
+rm -R ~/.node-red
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp 21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 ```
@@ -200,4 +201,36 @@ nmcli c up Hotspot
 
 ```
 
+# RPI Disable Bluetooth
+Disabling on-board Bluetooth Permalink
+The steps below shows how to disable on-board Bluetooth and related services. Those steps also disable loading the related kernel modules such as bluetooth, hci_uart, btbcm, etc at boot.
+
+Open /boot/config.txt file Permalink
+ /boot/config.txt
+sudo vi /boot/config.txt
+
+Looking in /boot/overlays/README from the September 2019 release of Raspbian Buster I can now see disable-bt and disable-wifi documented
+
+Add below, save and close the file Permalink
+ /boot/config.txt
+# Disable Bluetooth
+dtoverlay=disable-bt
+
+Info: Disable onboard Bluetooth on Pi 3B, 3B+, 3A+, 4B and Zero W, restoring UART0/ttyAMA0 over GPIOs 14 (pin 8) & 15 (pin10). N.B. To disable the systemd service that initialises the modem so it doesn’t use the UART, use ‘sudo systemctl disable hciuart’.
+
+Disable related services Permalink
+```
+systemctl disable hciuart.service
+systemctl disable bluealsa.service
+systemctl disable bluetooth.service
+```
+Reboot to apply the changes Permalink
+```
+dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 cgroup_enable=memory elevator=deadline rootwait
+```
+
+
+Even after disabling on-board Bluetooth and related services, Bluetooth will be available when a Bluetooth adapter (e.g. Plugable Bluetooth Adapter) is plugged in.
+
+sudo systemctl disable serial-getty@ttyAMA0.service
 
