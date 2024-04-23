@@ -16,12 +16,23 @@ bitbake-layers add-layer ../meta-iot-cloud/
 bitbake-layers add-layer ../meta-extras/
 bitbake core-image-base --runonly=fetch
 bitbake core-image-base
+```
+RPI zer0 2
+```
 cd tmp/deploy/images/raspberrypi0-2w/
 bzip2 -d -f core-image-base-raspberrypi0-2w.wic.bz2
 sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress conv=fsync
 cd ~/Yocto/build/
 exit
 ```
+RPI CM4 
+```
+cd tmp/deploy/images/raspberrypi4-64/
+bzip2 -d -f core-image-base-raspberrypi0-2w.wic.bz2
+sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress conv=fsync
+cd ~/Yocto/build/
+exit```
+
 ### setup security and install
 #### Run as root
 su root
@@ -29,15 +40,31 @@ su root
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
-npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
-mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
-cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp 21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+hostnamectl set-hostname TDN-FTPv2
 timedatectl set-ntp false
+npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
+rm -r ~/.node-red/
+cp -rv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+cp -rv /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
+cp -v ~/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+nmcli dev wifi con B26A24 password 'Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3'
 ```
+#### WIFI Connman
+```
+connmanctl
+enable wifi
+scan wifi
+services
+agent on
+connect wifi_dc85de828967_38303944616e69656c73_managed_psk
+```
+Assign password and reboot
+
+
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
-```mkdir Yocto/ 
+```
+mkdir Yocto/ 
 cd Yocto/ 
 mkdir TDN-GSI-Radxa-cm3-Dunfell/
 cd TDN-GSI-Radxa-cm3-Dunfell/
@@ -56,12 +83,13 @@ bitbake-layers add-layer ../meta-extras/
 bitbake-layers add-layer ../meta-radxa/
 bitbake -k radxa-console-image --runonly=fetch
 bitbake -k radxa-console-image```
-```
+
 #### Install rkdeveloptool
 ```
 git clone https://github.com/rockchip-linux/rkdeveloptool.git
 add rkdeveloptool to /bin PATH
 ```
+
 #### load usb drivers to rk3568 and flash img
 ```
 sudo rkdeveloptool db ~/Yocto/Rockpi/rk356x_spl_loader_ddr1056_v1.10.111.bin
