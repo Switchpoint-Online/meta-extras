@@ -5,18 +5,16 @@ LICENSE = "CLOSED"
 MY_FILES = "${THISDIR}/nr-files"
 
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=Langdale \
-           file://procscan.c \
-           file://gpioScan.c"
+           file://procscan.c"
 
 SRC_URI[sha256sum] = "5bce76250f8d9b257ef202c79a27967157b3b28f02a2b8300f964379ddb9aa50"
 
-SRCREV = "296b927680ce7f1bbc01b0b378ecc4b2267d88f5"
+SRCREV = "794a99482010d9a50e29e6238d2a74c05cec57c6"
 
 S = "${WORKDIR}"
 
 do_compile() {
         ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/procscan.c -o procscan
-        # ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/gpioScan.c -o gpioScan
 }
 
 do_install() {
@@ -25,8 +23,6 @@ do_install() {
     cp -R ${MY_FILES}/* ${D}/home/root/.node-red
     install -m 0755 -d ${D}${bindir} ${D}${docdir}/procscan
     install -m 0644 ${S}/procscan ${D}${bindir}
-    # install -m 0755 -d ${D}${bindir} ${D}${docdir}/gpioScan
-    # install -m 0644 ${S}/gpioScan ${D}${bindir}
     # install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
 }
 
