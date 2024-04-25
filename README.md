@@ -17,23 +17,21 @@ bitbake-layers add-layer ../meta-extras/
 bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 ```
-RPI zer0 2
-```
-cd tmp/deploy/images/raspberrypi0-2w/
+
+## Raspberry Pi Langdale BSP RPI0-2w
+```cd tmp/deploy/images/raspberrypi0-2w/
 bzip2 -d -f core-image-base-raspberrypi0-2w.wic.bz2
 sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress conv=fsync
 cd ~/Yocto/build/
 exit
 ```
-RPI CM4 
+## Raspberry Pi Langdale BSP CM4-Waveshare Nano ethernet
+```cd tmp/deploy/images/raspberrypi4-64/
+bzip2 -d -f core-image-base-raspberrypi4-64.wic.bz2
+sudo dd status=progress conv=fsync bs=4M if=core-image-base-raspberrypi4-64.wic of=/dev/sdf
+exit
 ```
-cd tmp/deploy/images/raspberrypi4-64/
-bzip2 -d -f core-image-base-raspberrypi0-2w.wic.bz2
-sudo dd bs=4M if=core-image-base-raspberrypi0-2w.wic of=/dev/sde status=progress conv=fsync
-cd ~/Yocto/build/
-exit```
-
-### setup security and install
+### setup security and install FTP NODE
 #### Run as root
 su root
 ```
@@ -48,31 +46,48 @@ nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
-hostnamectl set-hostname TDN-FTPv2
-timedatectl set-ntp false
 npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
-rm -r ~/.node-red/
-cp -rv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
-cp -rv /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v ~/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
-nmcli dev wifi con B26A24 password 'Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3'
+rm -r /home/root/.node-red/
+mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
+cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+timedatectl set-ntp false
 ```
-#### WIFI Connman
+### AP Configuration PRI
+#### NMCLI 
 ```
-connmanctl
-enable wifi
-scan wifi
-services
-agent on
-connect wifi_dc85de828967_38303944616e69656c73_managed_psk
+nmcli d wifi conn B26A24 password "Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3"
+nmcli c down B26A24
+nmcli d wifi hotspot ifname wlan0 ssid TDN-Portal password "LOGtn63u"
+nmcli connection modify Hotspot 802-11-wireless.mode ap 802-11-wireless.band bg
+nmcli connection modify Hotspot wifi-sec.key-mgmt wpa-psk
+nmcli connection modify Hotspot wifi-sec.psk LOGtn63u
+nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24 ipv4.gateway 192.168.4.1 ipv4.dns 192.168.4.1
+nmcli c up Hotspot
 ```
-Assign password and reboot
+
+### setup security and install DiSU NODE
+#### Run as root
+su root
+```
+hostnamectl set-hostname "TDN-iFaceV4"
+useradd -p $(echo r8 | openssl passwd -1 -stdin) config
+chmod +x /usr/bin/procscan
+mv -v /home/root/app/app/SHA ~/.SHA
+npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
+rm -R ~/.node-red
+mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+cp /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+```
+# Clone SD Card and add Serial to DRM
+```
+sudo dd if=/dev/sde of=TDN-DiSU_v1.img status=progress
+```
 
 
 ## RADXA CM3 IO Board - incl waveshare POE
 ### Working to test
-```
-mkdir Yocto/ 
+```mkdir Yocto/ 
 cd Yocto/ 
 mkdir TDN-GSI-Radxa-cm3-Dunfell/
 cd TDN-GSI-Radxa-cm3-Dunfell/
@@ -91,13 +106,12 @@ bitbake-layers add-layer ../meta-extras/
 bitbake-layers add-layer ../meta-radxa/
 bitbake -k radxa-console-image --runonly=fetch
 bitbake -k radxa-console-image```
-
+```
 #### Install rkdeveloptool
 ```
 git clone https://github.com/rockchip-linux/rkdeveloptool.git
 add rkdeveloptool to /bin PATH
 ```
-
 #### load usb drivers to rk3568 and flash img
 ```
 sudo rkdeveloptool db ~/Yocto/Rockpi/rk356x_spl_loader_ddr1056_v1.10.111.bin
@@ -188,22 +202,31 @@ nmcli c up Hotspot
 
 ```
 
-# RPI Disable Bluetooth
-Disabling on-board Bluetooth Permalink
-The steps below shows how to disable on-board Bluetooth and related services. Those steps also disable loading the related kernel modules such as bluetooth, hci_uart, btbcm, etc at boot.
+# RPI Disable Bluetooth and smb
+/etc/sambsa/smb.conf
+```
+echo "[config]
+        path = /home/config/ipdev/config/
+        read only = no
+        inherit permissions = yes
+	    valid users = config
 
-Open /boot/config.txt file Permalink
- /boot/config.txt
-sudo vi /boot/config.txt
+[update]
+        path = /home/config/ipdev/update/
+        read only = no
+        inherit permissions = yes
+    	valid users = config
+" >> /etc/samba/smb.conf
+```
 
-Looking in /boot/overlays/README from the September 2019 release of Raspbian Buster I can now see disable-bt and disable-wifi documented
-
-Add below, save and close the file Permalink
  /boot/config.txt
 # Disable Bluetooth
-dtoverlay=disable-bt
+```
+echo "dtoverlay=disable-bt" >> /boot/config.txt
+```
 
-Info: Disable onboard Bluetooth on Pi 3B, 3B+, 3A+, 4B and Zero W, restoring UART0/ttyAMA0 over GPIOs 14 (pin 8) & 15 (pin10). N.B. To disable the systemd service that initialises the modem so it doesn’t use the UART, use ‘sudo systemctl disable hciuart’.
+Info: Disable onboard Bluetooth on Pi 3B, 3B+, 3A+, 4B and Zero W, restoring UART0/ttyAMA0 over GPIOs 14 (pin 8) & 15 (pin10). 
+N.B. To disable the systemd service that initialises the modem so it doesn’t use the UART, use ‘sudo systemctl disable hciuart’.
 
 Disable related services Permalink
 ```
@@ -213,11 +236,10 @@ systemctl disable bluetooth.service
 ```
 Reboot to apply the changes Permalink
 ```
+PI 2 / 3
 dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 cgroup_enable=memory elevator=deadline rootwait
 ```
 
-
 Even after disabling on-board Bluetooth and related services, Bluetooth will be available when a Bluetooth adapter (e.g. Plugable Bluetooth Adapter) is plugged in.
 
-sudo systemctl disable serial-getty@ttyAMA0.service
-
+systemctl disable serial-getty@ttyAMA0.service
