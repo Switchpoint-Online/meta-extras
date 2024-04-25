@@ -243,3 +243,8 @@ dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 roo
 Even after disabling on-board Bluetooth and related services, Bluetooth will be available when a Bluetooth adapter (e.g. Plugable Bluetooth Adapter) is plugged in.
 
 systemctl disable serial-getty@ttyAMA0.service
+
+## add 7inch DSI
+```
+dtoverlay=vc4-kms-dsi-7inch
+```
