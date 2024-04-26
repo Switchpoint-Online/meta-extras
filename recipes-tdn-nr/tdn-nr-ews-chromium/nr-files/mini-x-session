@@ -37,5 +37,6 @@ xrandr -s 1024x768
 
 sleep 30                   
 epiphany http://127.0.0.1 & 
+xdotool key "F11" &
 exec matchbox-window-manager
 
