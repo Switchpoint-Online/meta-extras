@@ -48,11 +48,11 @@ nmcli connection modify Hotspot ipv4.method manual ipv4.addresses 192.168.4.1/24
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
-hostnamectl set-hostname TDN-FTPv2
+<!-- hostnamectl set-hostname TDN-FTPv2 -->
 timedatectl set-ntp false
 npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
 rm -r ~/.node-red/
-cp -rv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+cp -r /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp -rv /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
 cp -v ~/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 nmcli dev wifi con B26A24 password 'Rn!ug:Po(aA{;g2ATf7|UxwtkX3Q)sZ3'
