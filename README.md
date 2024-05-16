@@ -259,6 +259,9 @@ systemctl disable serial-getty@ttyAMA0.service
 
 ## add 7inch DSI
 ```
+# Enable VC4 Graphics
 dtoverlay=vc4-kms-dsi-7inch
+dtoverlay=disable-bt
+dtoverlay=dwc2,dr_mode=host
 ```
 /usr/bin/mini-x-session
