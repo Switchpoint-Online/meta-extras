@@ -178,7 +178,6 @@ su root
 useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 chmod +x /usr/bin/procscan
 mv -v /home/root/app/app/SHA ~/.SHA
-npm install -g --unsafe-perm node-red
 npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 mv -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
@@ -216,7 +215,7 @@ nmcli c up Hotspot
 ```
 
 # RPI Disable Bluetooth and smb
-/etc/sambsa/smb.conf
+/etc/samba/smb.conf
 ```
 echo "[config]
         path = /home/config/ipdev/config/
@@ -251,6 +250,8 @@ Reboot to apply the changes Permalink
 ```
 PI 2 / 3
 dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 cgroup_enable=memory elevator=deadline rootwait
+PIzero 2
+dwc_otg.lpm_enable=0 console=ttyAMA0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 rootwait  logo.nologo
 ```
 
 Even after disabling on-board Bluetooth and related services, Bluetooth will be available when a Bluetooth adapter (e.g. Plugable Bluetooth Adapter) is plugged in.
@@ -261,7 +262,11 @@ systemctl disable serial-getty@ttyAMA0.service
 ```
 # Enable VC4 Graphics
 dtoverlay=vc4-kms-dsi-7inch
-dtoverlay=disable-bt
+#dtoverlay=disable-bt
 dtoverlay=dwc2,dr_mode=host
 ```
 /usr/bin/mini-x-session
+
+
+## nmcli
+nmcli c mod 'Wired connection 1' ipv4.method manual ipv4.addr "172.14.14.14/24"
