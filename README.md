@@ -270,3 +270,24 @@ dtoverlay=dwc2,dr_mode=host
 
 ## nmcli
 nmcli c mod 'Wired connection 1' ipv4.method manual ipv4.addr "172.14.14.14/24"
+
+
+# meta-extras
+## Raspberry Pi Yocto 5 Scarthgap
+```cd ~/Yocto/TDN-Scarthgap/
+git clone -b scarthgap git://git.yoctoproject.org/poky.git
+git clone -b scarthgap git://git.yoctoproject.org/meta-raspberrypi.git
+git clone -b scarthgap git://git.openembedded.org/meta-openembedded
+git clone -b scarthgap https://github.com/intel-iot-devkit/meta-iot-cloud.git 
+git clone git@github.com:Switchpoint-Online/meta-extras.git -b kirkstone
+source poky/oe-init-build-env
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-iot-cloud/
+bitbake-layers add-layer ../meta-extras/
+bitbake core-image-base --runonly=fetch
+bitbake core-image-base
+```
