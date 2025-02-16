@@ -7,9 +7,9 @@ MY_FILES = "${THISDIR}/nr-files"
 SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=kirkstone \
            file://procscan.c"
 
-SRC_URI[sha256sum] = "9bb0a96c60968aaf54335fa8aa1a06814cbd5fa2fe5b3e37387a3e151fc99063"
+SRC_URI[sha256sum] = "685ee8b2187f0e2732aa35cc7a8eccfd3b5b8ef2dcea3447bc551c0c855e63a1"
 
-SRCREV = "3cf6e6a83d03e1b3b01e7a6e702eb0849ae4593e"
+SRCREV = "ed1c106e609bf0d7ff9cc42ef6f0abcc4622b145"
 
 S = "${WORKDIR}"
 
@@ -18,13 +18,13 @@ do_compile() {
 }
 
 do_install() {
-    install -d ${D}/home/root
-    mkdir ${D}/home/root/app
-    cp -R ${MY_FILES}/* ${D}/home/root/app
+    install -d ${D}/root
+    mkdir ${D}/root/app
+    cp -R ${MY_FILES}/* ${D}/root/app
     install -m 0755 -d ${D}${bindir} ${D}${docdir}/procscan
     install -m 0644 ${S}/procscan ${D}${bindir}
     # install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
 }
 
-FILES:${PN} = "/home/root/app"
+FILES:${PN} = "/root/app"
 FILES:${PN} += "/usr/bin"

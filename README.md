@@ -291,16 +291,3 @@ bitbake-layers add-layer ../meta-extras/
 bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 ```
-#### Run as root
-su root
-```
-hostnamectl set-hostname "TDN-GSIv3"
-chmod +x /usr/bin/procscan
-mv -v /root/app/app/SHA ~/.SHA
-npm --prefix /root/install install /root/app/tdn-ftp_v2-2.0.2.tgz
-rm -r ~/.node-red/
-mv /root/install/node_modules/tdn-ftp_v2/ /root/.node-red/
-mv -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v /root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
-timedatectl set-ntp false
-```
