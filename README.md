@@ -31,6 +31,20 @@ bzip2 -d -f core-image-base-raspberrypi4-64.wic.bz2
 sudo dd status=progress conv=fsync bs=4M if=core-image-base-raspberrypi4-64.wic of=/dev/sdf
 exit
 ```
+### setup security and install GSI v3.5
+#### Run as root
+su root
+```
+hostnamectl set-hostname "TDN-GSI-V3"
+chmod +x /usr/bin/procscan
+mv -v /home/root/app/app/SHA ~/.SHA
+npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
+rm -r ~/.node-red/
+mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
+cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
+cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+timedatectl set-ntp false
+```
 ### setup security and install FTP NODE
 #### Run as root
 su root
