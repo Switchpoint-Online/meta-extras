@@ -42,7 +42,8 @@ npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
 rm -r ~/.node-red/
 mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
 cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.BAK
+sed -i 's|                    let digestCreds = this.credentials;|                    var digestUser = msg.digestUser;\n                    var digestPass = msg.digestPass;\n                    let digestCreds = {"user":digestUser,"password":digestPass};|' /lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
 ```
 ### setup security and install FTP NODE
@@ -99,9 +100,9 @@ cd tmp/deploy/images/raspberrypi4-64/
 hostnamectl set-hostname "TDN-GSI-V3"
 chmod +x /usr/bin/procscan
 mv -v /root/app/app/SHA ~/.SHA
-npm --prefix /root/install install /root/app/tdn-ftp_v2-2.0.2.tgz
+npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
 rm -r ~/.node-red/
-mv /root/install/node_modules/tdn-ftp_v2/ /root/.node-red/
+mv /root/install/node_modules/tdn-ethv3/ /root/.node-red/
 cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
 cp -v /root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
