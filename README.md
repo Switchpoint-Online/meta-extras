@@ -68,6 +68,44 @@ cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_m
 timedatectl set-ntp false
 ```
 
+### Scarthgap TDN
+```
+mkdir TDN-Scarthgap
+cd TDN-Scarthgap/
+git clone -b scarthgap git://git.yoctoproject.org/poky.git
+git clone -b scarthgap git://git.yoctoproject.org/meta-raspberrypi.git
+git clone -b scarthgap git://git.openembedded.org/meta-openembedded
+git clone -b scarthgap https://github.com/intel-iot-devkit/meta-iot-cloud.git 
+git clone git@github.com:Switchpoint-Online/meta-extras.git -b kirkstone
+ls -al
+source poky/oe-init-build-env
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-iot-cloud/
+bitbake-layers add-layer ../meta-extras/
+bitbake-layers show-layers
+bitbake core-image-base --runonly=fetch
+ping www.google.com
+bitbake core-image-base --runonly=fetch
+bitbake core-image-base
+bitbake core-image-base --runonly=fetch
+bitbake core-image-base
+cd tmp/deploy/images/raspberrypi4-64/
+```
+```
+hostnamectl set-hostname "TDN-GSI-V3"
+chmod +x /usr/bin/procscan
+mv -v /root/app/app/SHA ~/.SHA
+npm --prefix /root/install install /root/app/tdn-ftp_v2-2.0.2.tgz
+rm -r ~/.node-red/
+mv /root/install/node_modules/tdn-ftp_v2/ /root/.node-red/
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+cp -v /root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+timedatectl set-ntp false
+```
 ### TDN-EWS 
 ```
 hostnamectl set-hostname "TDN-EWSv2"
