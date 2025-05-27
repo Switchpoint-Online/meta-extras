@@ -88,10 +88,6 @@ bitbake-layers add-layer ../meta-iot-cloud/
 bitbake-layers add-layer ../meta-extras/
 bitbake-layers show-layers
 bitbake core-image-base --runonly=fetch
-ping www.google.com
-bitbake core-image-base --runonly=fetch
-bitbake core-image-base
-bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 cd tmp/deploy/images/raspberrypi4-64/
 ```
