@@ -241,7 +241,7 @@ systemctl start node-red
 Added Nelson Robert Kernal and get Modprobe functional 
 ```
 
-                    var digestUser = msg.digestUser;
+                    var digestUser = msg.digestUser; 
                     var digestPass = msg.digestPass;
                     let digestCreds = {"user":digestUser,"password":digestPass};
 ```
