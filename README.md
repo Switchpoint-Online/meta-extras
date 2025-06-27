@@ -364,3 +364,15 @@ bitbake-layers add-layer ../meta-extras/
 bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 ```
+
+# BUILD USB detection support 
+```
+IMAGE_INSTALL:append = " \
+  nodejs \
+  util-linux \
+  usbutils \
+  libudev \
+  e2fsprogs \
+  dosfstools \
+"
+```
