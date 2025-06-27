@@ -91,6 +91,7 @@ bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 cd tmp/deploy/images/raspberrypi4-64/
 ```
+#### Base line configuration
 ```
 hostnamectl set-hostname "TDN-GSI-V3"
 chmod +x /usr/bin/procscan
@@ -101,7 +102,32 @@ mv /root/install/node_modules/tdn-ftp_v2/ /root/.node-red/
 cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
 timedatectl set-ntp false
 ```
-### TDN-EWS 
+#### TDN-GSI // Dual ethernet non bridged
+```
+systemctl mask NetworkManager.service
+systemctl mask networking.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+cat <<EOF | tee /etc/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+DHCP=yes
+Address=192.168.0.20/24
+Gateway=192.168.0.1
+EOF
+
+cat <<EOF | tee /etc/systemd/network/10-eth1.network
+[Match]
+Name=eth1
+
+[Network]
+Address=192.168.2.10/24
+DNS=8.8.4.4
+EOF
+```
+#### TDN-EWS 
 ```
 hostnamectl set-hostname "TDN-EWSv2"
 chmod +x /usr/bin/procscan
