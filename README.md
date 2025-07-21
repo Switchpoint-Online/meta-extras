@@ -89,13 +89,10 @@ bitbake-layers add-layer ../meta-iot-cloud/
 bitbake-layers add-layer ../meta-extras/
 bitbake-layers show-layers
 bitbake core-image-base --runonly=fetch
-ping www.google.com
-bitbake core-image-base --runonly=fetch
-bitbake core-image-base
-bitbake core-image-base --runonly=fetch
 bitbake core-image-base
 cd tmp/deploy/images/raspberrypi4-64/
 ```
+#### Base line configuration
 ```
 hostnamectl set-hostname "TDN-GSI-V3"
 chmod +x /usr/bin/procscan
@@ -104,10 +101,34 @@ npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
 rm -r ~/.node-red/
 mv /root/install/node_modules/tdn-ethv3/ /root/.node-red/
 cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v /root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 timedatectl set-ntp false
 ```
-### TDN-EWS 
+#### TDN-GSI // Dual ethernet non bridged
+```
+systemctl mask NetworkManager.service
+systemctl mask networking.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+cat <<EOF | tee /etc/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+DHCP=yes
+Address=192.168.0.20/24
+Gateway=192.168.0.1
+EOF
+
+cat <<EOF | tee /etc/systemd/network/10-eth1.network
+[Match]
+Name=eth1
+
+[Network]
+Address=192.168.2.10/24
+DNS=8.8.4.4
+EOF
+```
+#### TDN-EWS 
 ```
 hostnamectl set-hostname "TDN-EWSv2"
 chmod +x /usr/bin/procscan
@@ -247,7 +268,7 @@ systemctl start node-red
 Added Nelson Robert Kernal and get Modprobe functional 
 ```
 
-                    var digestUser = msg.digestUser;
+                    var digestUser = msg.digestUser; 
                     var digestPass = msg.digestPass;
                     let digestCreds = {"user":digestUser,"password":digestPass};
 ```
@@ -343,4 +364,16 @@ bitbake-layers add-layer ../meta-iot-cloud/
 bitbake-layers add-layer ../meta-extras/
 bitbake core-image-base --runonly=fetch
 bitbake core-image-base
+```
+
+# BUILD USB detection support 
+```
+IMAGE_INSTALL:append = " \
+  nodejs \
+  util-linux \
+  usbutils \
+  libudev \
+  e2fsprogs \
+  dosfstools \
+"
 ```
