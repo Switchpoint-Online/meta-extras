@@ -127,6 +127,47 @@ Address=192.168.2.10/24
 DNS=8.8.4.4
 EOF
 ```
+#### TDN-GSI Dual// Dual ethernet bridged
+```
+mkdir -p /mnt/usbStick/
+cp -v /root/app/app/mount-usb.sh /usr/bin/usbStick
+chmod +x /usr/bin/usbStick
+systemctl mask NetworkManager.service
+systemctl mask networking.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+10-br0.netdev
+[NetDev]
+Name=br0
+Kind=bridge
+EOF
+cat <<EOF | tee /etc/systemd/network/10-br0.network
+[Match]
+Name=br0
+
+[Network]
+DHCP=yes
+Address=192.168.0.20/24
+Address=150.150.11.4/16
+Gateway=192.168.0.1
+DNS=192.168.0.1
+EOF
+cat <<EOF | tee /etc/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+Bridge=br0
+EOF
+
+cat <<EOF | tee /etc/systemd/network/10-eth1.network
+[Match]
+Name=eth1
+
+[Network]
+Bridge=br0
+EOF
+```
 #### TDN-EWS 
 ```
 hostnamectl set-hostname "TDN-EWSv2"
