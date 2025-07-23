@@ -96,6 +96,7 @@ cd tmp/deploy/images/raspberrypi4-64/
 ```
 hostnamectl set-hostname "TDN-GSI-V3"
 chmod +x /usr/bin/procscan
+useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
 mv -v /root/app/app/SHA ~/.SHA
 npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
 rm -r ~/.node-red/
@@ -105,6 +106,7 @@ timedatectl set-ntp false
 ```
 #### TDN-GSI // Dual ethernet non bridged
 ```
+hostnamectl set-hostname "TDN-Eth-V3"
 systemctl mask NetworkManager.service
 systemctl mask networking.service
 systemctl enable systemd-networkd.service
@@ -130,6 +132,7 @@ EOF
 ```
 #### TDN-GSI Dual// Dual ethernet bridged
 ```
+hostnamectl set-hostname "TDN-Eth-Dual-V3"
 mkdir -p /mnt/usbStick/
 cp -v /root/app/app/mount-usb.sh /usr/bin/usbStick
 chmod +x /usr/bin/usbStick
