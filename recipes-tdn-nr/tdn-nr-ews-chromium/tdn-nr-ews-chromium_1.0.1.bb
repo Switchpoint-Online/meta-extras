@@ -1,30 +1,32 @@
 SUMMARY = "TDN Extras"
-DESCRIPTION = ""
-HOMEPAGE = ""
+DESCRIPTION = "TDN Custom Psplash Image"
 LICENSE = "CLOSED"
-MY_FILES = "${THISDIR}/nr-files"
 
-SRC_URI += "https://github.com/Switchpoint-Online/meta-extras.git;protocol=ssh;branch=kirkstone \
-           file://procscan.c"
+LIC_FILES_CHKSUM = ""
 
-SRC_URI[sha256sum] = "cfa03b0ea4778b0d5057b0f6e7ea8b45e3cb9585ea99445d309a4a8a3e26e3be"
+# Replace this with your actual relative path if different
+MY_FILES = "${THISDIR}/files"
 
-SRCREV = "6c54f60bc9a27639da29566d27fa59837655d30d"
+SRC_URI = " \
+    file://psplash.c \
+    file://psplash.h \
+    file://psplash-colors.h \
+    file://psplash_TDN-POD.h \
+"
 
 S = "${WORKDIR}"
 
 do_compile() {
-        ${CC} ${CFLAGS} ${LDFLAGS} ${WORKDIR}/procscan.c -o procscan
+    oe_runmake 'CC=${CC}' \
+               'CFLAGS=${CFLAGS}' \
+               'LDFLAGS=${LDFLAGS}' \
+               'PSPLASH_IMG=psplash_TDN-POD.h' \
+               psplash
 }
 
 do_install() {
-    install -d ${D}/home/root
-    mkdir ${D}/home/root/app
-    cp -R ${MY_FILES}/* ${D}/home/root/app
-    install -m 0755 -d ${D}${bindir} ${D}${docdir}/procscan
-    install -m 0644 ${S}/procscan ${D}${bindir}
-    # install -m 0644 ${WORKDIR}/README.md ${D}${docdir}/procscan
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/psplash ${D}${bindir}/psplash
 }
 
-FILES:${PN} = "/home/root/app"
-FILES:${PN} += "/usr/bin"
+FILES:${PN} += "${bindir}/psplash"
