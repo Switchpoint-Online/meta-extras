@@ -107,6 +107,14 @@ timedatectl set-ntp false
 #### TDN-GSI // Dual ethernet non bridged
 ```
 hostnamectl set-hostname "TDN-Eth-V3"
+chmod +x /usr/bin/procscan
+useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
+mv -v /root/app/app/SHA ~/.SHA
+npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
+rm -r ~/.node-red/
+mv /root/install/node_modules/tdn-ethv3/ /root/.node-red/
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+timedatectl set-ntp false
 systemctl mask NetworkManager.service
 systemctl mask networking.service
 systemctl enable systemd-networkd.service
@@ -131,20 +139,27 @@ DNS=8.8.4.4
 EOF
 ```
 #### TDN-GSI Dual// Dual ethernet bridged
-```
-hostnamectl set-hostname "TDN-Eth-Dual-V3"
+```hostnamectl set-hostname "TDN-Eth-Dual-V3"
+chmod +x /usr/bin/procscan
+su -c "useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv" root
+timedatectl set-ntp false
 mkdir -p /mnt/usbStick/
-cp -v /root/app/app/mount-usb.sh /usr/bin/usbStick
+cp -v app/mount-usb.sh /usr/bin/usbStick
 chmod +x /usr/bin/usbStick
+echo "dtoverlay=disable-bt" >> /boot/config.txt
+systemctl disable hciuart.service
+systemctl disable bluealsa.service
+systemctl disable bluetooth.service
 systemctl mask NetworkManager.service
 systemctl mask networking.service
 systemctl enable systemd-networkd.service
 systemctl enable systemd-resolved.service
-10-br0.netdev
+cat <<EOF | tee /etc/systemd/network/10-br0.netdev
 [NetDev]
 Name=br0
 Kind=bridge
 EOF
+
 cat <<EOF | tee /etc/systemd/network/10-br0.network
 [Match]
 Name=br0
@@ -156,6 +171,7 @@ Address=150.150.11.4/16
 Gateway=192.168.0.1
 DNS=192.168.0.1
 EOF
+
 cat <<EOF | tee /etc/systemd/network/10-eth0.network
 [Match]
 Name=eth0
@@ -171,7 +187,19 @@ Name=eth1
 [Network]
 Bridge=br0
 EOF
+
+mv -v /root/app/app/SHA ~/.SHA
+
+npm --prefix /root/install install /root/app/tdn-eth-dual_v3.2.8.tgz
+
+rm -r ~/.node-red/
+mv /root/install/node_modules/TDN-Eth-Dual_v3.2.8/ /root/.node-red/
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+su -c "cp /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.bak && sed -i 's|^\(\s*\)let digestCreds = this\.credentials;|\1var digestUser = msg.digestUser;\n\1var digestPass = msg.digestPass;\n\1let digestCreds = {"user":digestUser,"password":digestPass};|' /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js" root
+su -c "cp /boot/cmdline.txt /boot/cmdline.bak && sed -i 's/console=serial0,115200/console=tty99/' /boot/cmdline.txt" root
+su -c "reboot" root
 ```
+
 #### TDN-EWS 
 ```
 hostnamectl set-hostname "TDN-EWSv2"
