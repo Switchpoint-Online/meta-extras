@@ -4,6 +4,8 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit packagegroup
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
+
 RDEPENDS:${PN} = "\
     xserver-xorg \
     xinit \
@@ -12,10 +14,11 @@ RDEPENDS:${PN} = "\
     epiphany \
     libegl-mesa \
     libgles2-mesa \
+    libgbm \
     bubblewrap \
     xdg-dbus-proxy \
     libseccomp \
     tdn-kiosk-users \
-    kiosk-session \
     xserver-nodm-init \
+    kiosk-session \
 "

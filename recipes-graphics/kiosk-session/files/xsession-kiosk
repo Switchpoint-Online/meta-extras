@@ -1,19 +1,11 @@
 #!/bin/sh
-# Minimal kiosk session started by xserver-nodm-init
-# Reads /etc/default/tdn-kiosk for KIOSK_URL
 [ -f /etc/default/tdn-kiosk ] && . /etc/default/tdn-kiosk
 : "${KIOSK_URL:=http://127.0.0.1:1880}"
-
-# Optional: silence accessibility bus chatter
 export NO_AT_BRIDGE=1
 
-# Ensure an Epiphany web-app profile exists (app-mode expects a ".app" marker)
 PROFILE_DIR="$HOME/.local/share/epiphany-kiosk"
 mkdir -p "$PROFILE_DIR"
 [ -f "$PROFILE_DIR/.app" ] || : > "$PROFILE_DIR/.app"
 
-# Start a very small WM
 matchbox-window-manager -use_titlebar no -use_cursor yes &
-
-# Launch Epiphany in application/kiosk mode
 exec epiphany --application-mode --profile="$PROFILE_DIR" "$KIOSK_URL"

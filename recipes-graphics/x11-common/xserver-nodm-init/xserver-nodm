@@ -1,0 +1,22 @@
+# /etc/default/xserver-nodm
+#
+# This file configures the X server startup for xserver-nodm-init.
+
+# User account to run X under
+NODM_USER=kiosk
+
+# Enable automatic X start (true/false)
+NODM_ENABLED=true
+
+# Path to X server binary
+NODM_XSERVER=/usr/bin/X
+
+# X server options
+# For kiosk you usually want no DPMS, blanking, or screen saver
+NODM_X_OPTIONS="-nocursor -nolisten tcp vt7 -s 0 dpms"
+
+# X session script to run after X starts
+NODM_XSESSION=/etc/X11/Xsession
+
+# Resolution or other server arguments can go here if needed
+# Example: NODM_X_OPTIONS="$NODM_X_OPTIONS -dpi 96"
