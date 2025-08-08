@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "psplash-poky-img.h": "c",
+        "psplash-tdn-logo-img.h": "c"
+    }
+}

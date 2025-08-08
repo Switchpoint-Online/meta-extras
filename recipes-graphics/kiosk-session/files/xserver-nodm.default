@@ -1,0 +1,6 @@
+# Who runs X
+USER=kiosk
+# Quiet X, no TCP listener
+ARGS="-nolisten tcp"
+# Which VT to use (optional)
+VT=vt7
