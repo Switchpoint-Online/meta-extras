@@ -96,7 +96,7 @@ cd tmp/deploy/images/raspberrypi4-64/
 ```
 hostnamectl set-hostname "TDN-GSI-V3"
 chmod +x /usr/bin/procscan
-useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv
+su -c "useradd -p $(echo transfer | openssl passwd -1 -stdin) numeronsrv" root
 mv -v /root/app/app/SHA ~/.SHA
 npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
 rm -r ~/.node-red/
@@ -127,6 +127,7 @@ Name=eth0
 DHCP=yes
 Address=192.168.0.20/24
 Gateway=192.168.0.1
+DNS=192.168.0.1
 EOF
 
 cat <<EOF | tee /etc/systemd/network/10-eth1.network
@@ -135,7 +136,6 @@ Name=eth1
 
 [Network]
 Address=192.168.2.10/24
-DNS=8.8.4.4
 EOF
 ```
 #### TDN-GSI Dual// Dual ethernet bridged
