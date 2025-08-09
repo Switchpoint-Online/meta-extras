@@ -7,5 +7,15 @@ PACKAGES = "${PN}"
 ALLOW_EMPTY:${PN} = "1"
 EXTRA_USERS_PARAMS = "\
   useradd -m -d /home/kiosk -s /bin/sh kiosk; \
-  usermod -p '\$6\$rounds=4096\$mysalt\$myhash...' kiosk; \
+  usermod -L kiosk; \
+  usermod -a -G video,input kiosk; \
 "
+
+pkg_postinst:${PN} () {
+    if [ -z "$D" ]; then
+        mkdir -p /home/kiosk/.local/share
+        chown -R kiosk:kiosk /home/kiosk
+        chmod 700 /home/kiosk
++       getent group render >/dev/null 2>&1 && usermod -a -G render kiosk || true
+    fi
+}

@@ -2,10 +2,19 @@
 [ -f /etc/default/tdn-kiosk ] && . /etc/default/tdn-kiosk
 : "${KIOSK_URL:=http://127.0.0.1:1880}"
 export NO_AT_BRIDGE=1
+export GDK_BACKEND=x11
 
-PROFILE_DIR="$HOME/.local/share/epiphany-kiosk"
+PROFILE_DIR="$HOME/.local/share/org.gnome.Epiphany.WebApp-kiosk"
 mkdir -p "$PROFILE_DIR"
-[ -f "$PROFILE_DIR/.app" ] || : > "$PROFILE_DIR/.app"
+: > "$PROFILE_DIR/.app"
+
+# kill X blanking/DPMS just in case
+xset s off || true
+xset -dpms || true
+xset s noblank || true
 
 matchbox-window-manager -use_titlebar no -use_cursor yes &
-exec epiphany --application-mode --profile="$PROFILE_DIR" "$KIOSK_URL"
+exec dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 \
+    epiphany --application-mode --incognito-mode \
+             --profile="$PROFILE_DIR" \
+             "$KIOSK_URL"

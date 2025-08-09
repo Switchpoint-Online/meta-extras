@@ -7,7 +7,7 @@ SRC_URI = "file://xsession-kiosk \
 
 S = "${WORKDIR}"
 
-RDEPENDS:${PN} = "epiphany matchbox-wm xinit xserver-nodm-init"
+RDEPENDS:${PN} = "epiphany matchbox-wm xinit xserver-nodm-init dbus-x11"
 
 do_install() {
     install -d ${D}/etc/default
@@ -25,7 +25,6 @@ pkg_postinst:${PN} () {
 }
 
 FILES:${PN} += " \
-  /etc/default/xserver-nodm \
   /etc/default/tdn-kiosk \
   /home/kiosk/.xsession \
 "

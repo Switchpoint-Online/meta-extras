@@ -13,7 +13,7 @@ NODM_XSERVER=/usr/bin/X
 
 # X server options
 # For kiosk you usually want no DPMS, blanking, or screen saver
-NODM_X_OPTIONS="-nocursor -nolisten tcp vt7 -s 0 dpms"
+NODM_X_OPTIONS="-nolisten tcp vt1 -s 0 -dpms"
 
 # X session script to run after X starts
 NODM_XSESSION=/etc/X11/Xsession
