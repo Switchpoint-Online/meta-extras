@@ -1,0 +1,210 @@
+reboot
+export DISPLAY:=0
+export DISPLAY=:0
+su -c "http://127.0.0.1:1880" kiosk 
+epiphany http://127.0.0.1:1880
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
+epiphany http://127.0.0.1:1880
+epiphany http://127.0.0.1:1880
+unset WEBKIT_DISABLE_COMPOSITING_MODE
+epiphany http://127.0.0.1:1880
+epiphany http://127.0.0.1:1880
+export WEBKIT_DISABLE_COMPOSITING_MODE=1
+epiphany http://127.0.0.1:1880
+root@raspberrypi4-64:~# unset WEBKIT_DISABLE_COMPOSITING_MODE
+root@raspberrypi4-64:~# epiphany http://127.0.0.1:1880
+(epiphany:699): epiphany-WARNING **: 12:00:33.679: Failed to search secret storage (is the secret service or secrets portal broken?): The names
+(epiphany:699): Gtk-WARNING **: 12:00:33.910: Error embedding AT-SPI socket: GDBus.Error:org.freedesktop.DBus.Error.NameHasNoOwner: Name ":1.3t
+[  246.018132] audit: type=1701 audit(1754654434.011:27): auid=4294967295 uid=0 gid=0 ses=4294967295 pid=699 comm="epiphany" exe="/usr/bin/epi1
+Segmentation fault (core dumped)
+ls -l /usr/lib/libGLESv2.so.2 /usr/lib/libEGL.so.1 /usr/lib/libgbm.so.1
+dmesg | grep -E 'vc4|v3d'
+ls -l /dev/dri/card0
+export DISPLAY=:0
+export NO_AT_BRIDGE=1
+su - kiosk -c 'epiphany http://127.0.0.1:1880'
+which bwrap xdg-dbus-proxy
+bwrap --unshare-user-try true --uid 1000 --gid 1000 /bin/true && echo OK || echo FAIL
+epiphany http://127.0.0.1:1880
+epiphany http://192.168.0.25
+cat /etc/X11/Xsession
+cat /etc/X11/Xsession.d/90XWindowManager.sh 
+ls -al
+vi /usr/bin/x-session-manager 
+su root
+vi /boot/config.txt 
+systemctl disable hciuart.service
+systemctl disable bluealsa.service
+systemctl disable bluetooth.service
+reboot
+su root
+ip a s
+cat /etc/X11/Xsession.d/90XWindowManager.sh 
+vi /usr/bin/x-session-manager 
+reboot
+export DISPLAY=:0
+epiphany http://127.0.0.1:1880
+clear
+export DISPLAY=:0
+export NO_AT_BRIDGE=1
+su - kiosk -c 'epiphany http://127.0.0.1:1880'
+# 1) Make sure you run as the unprivileged kiosk user
+export DISPLAY=:0
+export NO_AT_BRIDGE=1
+su - kiosk -c 'dbus-run-session -- epiphany http://127.0.0.1:1880'
+which bwrap xdg-dbus-proxy
+bwrap --unshare-user-try --uid 1000 --gid 1000 --bind / / /bin/true && echo OK || echo FAIL
+ls -al /home
+chown kiosk:kiosk kiosk/
+chown kiosk:kiosk kiosk
+chown kiosk:kiosk /home/kiosk/
+ls -al /home
+su - kiosk -c 'dbus-run-session -- epiphany http://127.0.0.1:1880'
+xdotool key F11
+su - kiosk -c 'epiphany http://127.0.0.1:1880'
+top
+export DISPLAY=:0
+export NO_AT_BRIDGE=1
+# quick bwrap sanity (bind the host root so /bin/true exists)
+bwrap --unshare-user-try --uid 1000 --gid 1000 --bind / / /bin/true && echo "userns OK" || echo "userns FAIL"
+# now run Epiphany as kiosk with sandbox OFF
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_FORCE_SANDBOX=0 epiphany http://127.0.0.1:1880'
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany http://127.0.0.1:1880'
+su - kiosk -c 'env -i HOME=/home/kiosk USER=kiosk LOGNAME=kiosk SHELL=/bin/sh DISPLAY=:0 GDK_BACKEND=x11 NO_AT_BRIDGE=1 \
+  dbus-run-session -- epiphany http://127.0.0.1:1880'
+export DISPLAY=:0
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany http://127.0.0.1:1880'
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany http://192.168.0.25'
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany localhost:1880'
+ip a s
+su root
+cat /usr/bin/x-session-manager 
+top
+vi /usr/bin/x-session-manager 
+su -c reboot root
+dmesg
+root
+@ct10nW0rk5FUCK
+clear
+su root
+reboot
+dmesg
+su root
+vi /usr/bin/x-session-manager 
+su root
+vi /usr/bin/x-session-manager 
+[A
+vi /usr/bin/x-session-manager 
+vi /usr/bin/x-session-manager 
+export DISPLAY=:0
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany --incognito http://192.168.0.25'
+epiphany --help
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany -i http://192.168.0.25'
+vi /usr/bin/x-session-manager 
+su -c reboot root
+export DISPLAY=:0
+xdotool key F11
+vi /usr/bin/x-session-manager 
+su -c reboot root
+export DISPLAY=:0
+epiphany -a localhost
+su - kiosk -c 'dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 epiphany -a http://192.168.0.25'
+clear
+su - kiosk -c '
+  P="$HOME/.local/share/org.gnome.Epiphany.WebApp-kiosk"
+  mkdir -p "$P"
+  : > "$P/.app"
+'
+su - kiosk -c '
+  dbus-run-session -- env DISPLAY=:0 WEBKIT_DISABLE_DMABUF_RENDERER=1 \
+    epiphany --application-mode --incognito-mode \
+             --profile="$HOME/.local/share/org.gnome.Epiphany.WebApp-kiosk" \
+             http://192.168.0.25
+'
+vi /usr/bin/x-session-manager 
+su -c reboot root
+vi /usr/bin/x-session-manager 
+vi /usr/bin/x-session-manager 
+su -c reboot root
+hostnamectl set-hostname "TDN-POD-ACK_v2"
+chmod +x /usr/bin/procscan
+mv -v /root/app/app/SHA ~/.SHA
+npm --prefix /root/install install /root/app/tdn-ethv3-3.1.0.tgz
+rm -r ~/.node-red/
+mv /root/install/node_modules/tdn-ethv3/ /root/.node-red/
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+timedatectl set-ntp false
+systemctl mask NetworkManager.service
+systemctl mask networking.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+cat <<EOF | tee /etc/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+DHCP=yes
+Address=192.168.0.20/24
+Gateway=192.168.0.1
+EOF
+
+cat <<EOF | tee /etc/systemd/network/10-eth1.network
+[Match]
+Name=eth1
+
+[Network]
+Address=192.168.2.10/24
+DNS=8.8.4.4
+EOF
+
+rm /etc/systemd/network/10-eth1.network 
+su -c "cp /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.bak && sed -i 's|^\(\s*\)let digestCreds = this\.credentials;|\1var digestUser = msg.digestUser;\n\1var digestPass = msg.digestPass;\n\1let digestCreds = {"user":digestUser,"password":digestPass};|' /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js" root
+reboot
+clear
+vi /usr/bin/x-session-manager 
+su root
+systemctl stop node-red
+systemctl disable node-red
+timedatectl set-ntp false
+timedatectl set-ntp true
+su rootdate
+su -c date root
+rm .node-red/flows.json 
+vi .node-red/settings.js 
+vi /usr/bin/x-session-manager 
+su -c reboot root
+clear
+date
+vi /etc/systemd/network/10-eth0.network 
+node-red
+rm .node-red/flows.json 
+node-red
+cd .node-red/
+npm install node-red-contrib-hikvision-ultimate
+npm install hik-openapi -S
+cd ..
+node-red
+echo "0b6580ba549d4d1dfd55fb324be0f0868faf1d98fb330f8166e00364413180b7" > .SHA
+node-red
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+systemctl enable node-red
+su -c reboot root
+# 1) Stop the boot-time instance if it’s running (systemd setups)
+sudo systemctl stop psplash-start.service psplash-systemd.service psplash-quit.service 2>/dev/null || true
+/usr/bin/psplash
+find / -name "psplash*" 2>/dev/null
+systemctl start psplash-start.service
+systemctl start psplash-start.service
+ls -l /run/psplash_fifo || ls -l /tmp/psplash_fifo
+systemctl cat psplash-start.service | sed -n 's/^ExecStart=//p'
+grep -R ^ExecStart= /usr/lib/systemd/system/psplash-start.service
+cd /usr/bin/psplash
+cat /usr/bin/psplash
+cd /usr/bin/psplash
+opkg list-installed | grep -i psplash
+opkg files psplash
+cat /var/lib/opkg/info/psplash.list
+systemctl status psplash-start.service --no-pager
+journalctl -u psplash-start.service -n 100 --no-pager
+systemctl cat psplash-start.service
+su -c reboot root
