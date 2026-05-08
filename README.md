@@ -199,6 +199,16 @@ su -c "cp /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/netwo
 su -c "cp /boot/cmdline.txt /boot/cmdline.bak && sed -i 's/console=serial0,115200/console=tty99/' /boot/cmdline.txt" root
 su -c "reboot" root
 ```
+### wpa_supplicant -B -i wlan0 -c <(wpa_passphrase RC19_2gz 'd15_muN9@13') && udhcpc -i wlan0
+```
+DEST=/root/.node-red/node_modules/node-red-contrib-tdn-sts-gen2 && \
+rm -rf "$DEST" && \
+mkdir -p "$DEST" && \
+cp -r /boot/TDN-STS_gen2/* "$DEST/" && \
+cd "$DEST" && \
+npm install --production && \
+systemctl restart node-red
+```
 
 #### TDN-EWS 
 ```
