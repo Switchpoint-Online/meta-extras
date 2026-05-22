@@ -16,6 +16,6 @@ pkg_postinst:${PN} () {
         mkdir -p /home/kiosk/.local/share
         chown -R kiosk:kiosk /home/kiosk
         chmod 700 /home/kiosk
-+       getent group render >/dev/null 2>&1 && usermod -a -G render kiosk || true
+        getent group render >/dev/null 2>&1 && usermod -a -G render kiosk || true
     fi
 }

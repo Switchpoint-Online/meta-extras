@@ -1,0 +1,363 @@
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- CONFIG NODE — tdn-whatsapp-config                                      -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script type="text/javascript">
+    RED.nodes.registerType('tdn-whatsapp-config', {
+        category: 'config',
+        defaults: {
+            name:         { value: 'WhatsApp', required: true },
+            authPath:     { value: '' },
+            verboseDebug: { value: false }
+        },
+        label: function () { return this.name || 'WhatsApp'; },
+        oneditprepare: function () {
+            $('#node-config-input-verboseDebug').prop('checked', this.verboseDebug);
+            var adminRoot = (RED.settings.httpAdminRoot || '/').replace(/\/$/, '');
+            $('#wa-qr-link').attr('href', adminRoot + '/whatsapp-qr');
+        },
+        oneditsave: function () {
+            this.verboseDebug = $('#node-config-input-verboseDebug').prop('checked');
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="tdn-whatsapp-config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="WhatsApp">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-authPath"><i class="fa fa-folder-open"></i> Auth path</label>
+        <input type="text" id="node-config-input-authPath"
+               placeholder="Linux: /home/admin/wa-alarm/.wwebjs_auth  |  Win: ./dev-auth"
+               style="width:70%">
+        <div style="margin-top:4px;color:#888;font-size:11px">
+            Leave blank to use the platform default.<br>
+            Linux default: <code>/var/lib/tdn-whatsapp</code><br>
+            Windows default: <code>./dev-auth</code>
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-verboseDebug" style="width:auto;margin-right:8px">
+            <i class="fa fa-bug"></i> Verbose debug
+        </label>
+        <input type="checkbox" id="node-config-input-verboseDebug" style="width:auto">
+        <span style="color:#888;font-size:11px;margin-left:8px">
+            Forwards internal events to output 2 of Send / Contacts nodes
+        </span>
+    </div>
+    <div class="form-row" style="margin-top:16px">
+        <a id="wa-qr-link" href="/whatsapp-qr" target="_blank" class="btn btn-default btn-sm">
+            <i class="fa fa-qrcode"></i> Open QR page
+        </a>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tdn-whatsapp-config">
+    <p>Holds the WhatsApp Web session (<code>whatsapp-web.js</code> + headless Chromium).</p>
+    <h3>Auth path</h3>
+    <p>
+        Where <code>LocalAuth</code> stores the session. Leave blank to use the
+        platform default (<code>/var/lib/tdn-whatsapp</code> on Linux/Yocto,
+        <code>./dev-auth</code> on Windows).
+    </p>
+    <h3>First run</h3>
+    <p>
+        Open <a href="/whatsapp-qr" target="_blank">/whatsapp-qr</a> and scan with
+        WhatsApp on the registered phone. The session is then persisted — subsequent
+        restarts will not require a rescan.
+    </p>
+    <h3>ARM / Pi note</h3>
+    <p>
+        Puppeteer's bundled Chrome is x86-only. On the Pi, install
+        <code>sudo apt install chromium</code> and set
+        <code>PUPPETEER_SKIP_DOWNLOAD=true</code> in the Node-RED systemd service.
+        The node handles <code>executablePath</code> automatically.
+    </p>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SEND NODE — tdn-whatsapp-send                                          -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script type="text/javascript">
+    RED.nodes.registerType('tdn-whatsapp-send', {
+        category: 'TDN',
+        color: '#25D366',
+        defaults: {
+            name:      { value: '' },
+            server:    { value: '', type: 'tdn-whatsapp-config', required: true },
+            defaultTo: { value: '' }
+        },
+        inputs:  1,
+        outputs: 2,
+        icon: 'font-awesome/fa-comments',
+        paletteLabel: 'WA Send',
+        label: function () { return this.name || 'WA Send'; },
+        outputLabels: ['result', 'debug']
+    });
+</script>
+
+<script type="text/html" data-template-name="tdn-whatsapp-send">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="WA Send">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-cog"></i> Config</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-defaultTo"><i class="fa fa-user"></i> Default recipient</label>
+        <input type="text" id="node-input-defaultTo"
+               placeholder="27821234567@c.us  or  groupid@g.us"
+               style="width:60%">
+        <div style="margin-top:4px;color:#888;font-size:11px">
+            Used when <code>msg.to</code> is not set. Use the Contacts node to find IDs.
+        </div>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tdn-whatsapp-send">
+    <p>Sends a WhatsApp message via the configured session.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">string</span></dt>
+        <dd>Message text to send.</dd>
+        <dt class="optional">to <span class="property-type">string</span></dt>
+        <dd>
+            Recipient ID. Overrides the node's default.<br>
+            <code>27821234567@c.us</code> — individual<br>
+            <code>12345678901234567890@g.us</code> — group<br>
+            <code>abc123@lid</code> — linked device
+        </dd>
+    </dl>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">object</span></dt>
+                <dd><code>{ success, to, messageId }</code></dd>
+            </dl>
+        </li>
+        <li>Debug events (when Verbose debug is enabled on the config node)</li>
+    </ol>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- CONTACTS NODE — tdn-whatsapp-contacts                                  -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script type="text/javascript">
+    RED.nodes.registerType('tdn-whatsapp-contacts', {
+        category: 'TDN',
+        color: '#25D366',
+        defaults: {
+            name:   { value: '' },
+            server: { value: '', type: 'tdn-whatsapp-config', required: true }
+        },
+        inputs:  1,
+        outputs: 2,
+        icon: 'font-awesome/fa-address-book',
+        paletteLabel: 'WA Contacts',
+        label: function () { return this.name || 'WA Contacts'; },
+        outputLabels: ['contacts', 'debug']
+    });
+</script>
+
+<script type="text/html" data-template-name="tdn-whatsapp-contacts">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="WA Contacts">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-cog"></i> Config</label>
+        <input type="text" id="node-input-server">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tdn-whatsapp-contacts">
+    <p>Returns all chats (users and groups) sorted alphabetically.</p>
+    <h3>Inputs</h3>
+    <p>Any message triggers a chat fetch.</p>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">object</span></dt>
+                <dd>
+                    <code>{ users: [{ id, name, number, unread, timestamp }, …],<br>
+                    groups: [{ id, name, participants, unread, timestamp }, …] }</code><br>
+                    Use <code>id</code> as <code>msg.to</code> in the Send node.
+                </dd>
+            </dl>
+        </li>
+        <li>Debug events (when Verbose debug is enabled on the config node)</li>
+    </ol>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- ALARM NODE — tdn-whatsapp-alarm                                        -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script type="text/javascript">
+    RED.nodes.registerType('tdn-whatsapp-alarm', {
+        category: 'TDN',
+        color: '#25D366',
+        defaults: {
+            name:       { value: '' },
+            server:     { value: '', type: 'tdn-whatsapp-config', required: true },
+            defaultTo:  { value: '' },
+            defaultMsg: { value: 'ALARM TRIGGERED' },
+            dailyLimit: { value: 10 }
+        },
+        inputs:  1,
+        outputs: 2,
+        icon: 'font-awesome/fa-bell',
+        paletteLabel: 'WA Alarm',
+        label: function () { return this.name || 'WA Alarm'; },
+        outputLabels: ['sent', 'debug']
+    });
+</script>
+
+<script type="text/html" data-template-name="tdn-whatsapp-alarm">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="WA Alarm">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-cog"></i> Config</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-defaultTo"><i class="fa fa-user"></i> Recipient</label>
+        <input type="text" id="node-input-defaultTo"
+               placeholder="27821234567@c.us  or  groupid@g.us"
+               style="width:60%">
+        <div style="margin-top:4px;color:#888;font-size:11px">
+            Used when <code>msg.to</code> is not set.
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="node-input-defaultMsg"><i class="fa fa-comment"></i> Default message</label>
+        <input type="text" id="node-input-defaultMsg"
+               placeholder="ALARM TRIGGERED"
+               style="width:60%">
+        <div style="margin-top:4px;color:#888;font-size:11px">
+            Used when <code>msg.payload</code> is not set.
+        </div>
+    </div>
+    <div class="form-row">
+        <label for="node-input-dailyLimit"><i class="fa fa-shield"></i> Daily limit</label>
+        <input type="number" id="node-input-dailyLimit" min="1" max="50" style="width:80px">
+        <span style="color:#888;font-size:11px;margin-left:8px">messages per day (resets midnight UTC)</span>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tdn-whatsapp-alarm">
+    <p>Rate-limited WhatsApp send for alarm events. Rejects sends once the daily limit is reached.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">string</span></dt>
+        <dd>Alarm message text. Falls back to the configured default if not set.</dd>
+        <dt class="optional">to <span class="property-type">string</span></dt>
+        <dd>Recipient ID. Overrides the node's default.</dd>
+    </dl>
+    <h3>Outputs</h3>
+    <ol class="node-ports">
+        <li>
+            <dl class="message-properties">
+                <dt>payload <span class="property-type">object</span></dt>
+                <dd><code>{ success, to, messageId, sentToday }</code></dd>
+            </dl>
+        </li>
+        <li>Debug events (when Verbose debug is enabled on the config node)</li>
+    </ol>
+    <h3>Rate limiting</h3>
+    <p>Counter resets at midnight UTC. When the daily limit is reached the node
+    errors and suppresses the send — it does not queue.</p>
+</script>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<!-- SCHEDULER NODE — tdn-whatsapp-scheduler                                -->
+<!-- ═══════════════════════════════════════════════════════════════════════ -->
+<script type="text/javascript">
+    RED.nodes.registerType('tdn-whatsapp-scheduler', {
+        category: 'TDN',
+        color: '#25D366',
+        defaults: {
+            name:      { value: '' },
+            server:    { value: '', type: 'tdn-whatsapp-config', required: true },
+            recipient: { value: '' },
+            message:   { value: 'Proof of life — system OK' },
+            dayOfWeek: { value: 1 },
+            hour:      { value: 9 },
+            minute:    { value: 0 }
+        },
+        inputs:  0,
+        outputs: 1,
+        icon: 'font-awesome/fa-clock-o',
+        paletteLabel: 'WA Scheduler',
+        label: function () {
+            const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+            return this.name || ('WA Scheduler — ' + (days[this.dayOfWeek] || '?'));
+        },
+        outputLabels: ['sent']
+    });
+</script>
+
+<script type="text/html" data-template-name="tdn-whatsapp-scheduler">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="WA Scheduler">
+    </div>
+    <div class="form-row">
+        <label for="node-input-server"><i class="fa fa-cog"></i> Config</label>
+        <input type="text" id="node-input-server">
+    </div>
+    <div class="form-row">
+        <label for="node-input-recipient"><i class="fa fa-user"></i> Recipient</label>
+        <input type="text" id="node-input-recipient"
+               placeholder="27821234567@c.us  or  groupid@g.us"
+               style="width:60%">
+    </div>
+    <div class="form-row">
+        <label for="node-input-message"><i class="fa fa-comment"></i> Message</label>
+        <input type="text" id="node-input-message"
+               placeholder="Proof of life — system OK"
+               style="width:60%">
+    </div>
+    <div class="form-row">
+        <label><i class="fa fa-calendar"></i> Schedule</label>
+        <select id="node-input-dayOfWeek" style="width:100px;margin-right:8px">
+            <option value="0">Sunday</option>
+            <option value="1">Monday</option>
+            <option value="2">Tuesday</option>
+            <option value="3">Wednesday</option>
+            <option value="4">Thursday</option>
+            <option value="5">Friday</option>
+            <option value="6">Saturday</option>
+        </select>
+        <input type="number" id="node-input-hour" min="0" max="23" style="width:55px" placeholder="HH">
+        <span style="margin:0 4px">:</span>
+        <input type="number" id="node-input-minute" min="0" max="59" style="width:55px" placeholder="MM">
+        <div style="margin-top:4px;color:#888;font-size:11px">Local system time on the device</div>
+    </div>
+</script>
+
+<script type="text/html" data-help-name="tdn-whatsapp-scheduler">
+    <p>Sends a weekly proof-of-life WhatsApp message at a configured day and time.
+    No wiring needed — the node fires automatically on schedule.</p>
+    <h3>Schedule</h3>
+    <p>
+        Checks every 30 seconds. Fires once per week at the configured day/time.
+        Accurate to within 30 seconds. Tracks last-fired date so restarts do not
+        cause a double-send.
+    </p>
+    <h3>Output</h3>
+    <dl class="message-properties">
+        <dt>payload <span class="property-type">object</span></dt>
+        <dd><code>{ success, to, messageId, message }</code></dd>
+    </dl>
+</script>
