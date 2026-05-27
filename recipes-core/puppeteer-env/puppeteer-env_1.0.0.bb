@@ -4,14 +4,19 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 inherit allarch
 
-# Belt-and-suspenders: set in /etc/environment (PAM/shell sessions) AND
-# as a systemd drop-in so the node-red service inherits it even without PAM.
-# This prevents npm/puppeteer from attempting to download x86 Chrome on ARM.
+# Belt-and-suspenders: set via profile.d (login/SSH shells) AND a systemd
+# drop-in (node-red service) so npm/puppeteer never attempts to download
+# x86 Chrome on ARM regardless of how it is invoked.
+#
+# NOTE: /etc/environment is owned by pam-plugin-env — installing a file
+# there from a separate recipe causes an opkg file-clash (exit 255).
+# Use /etc/profile.d instead, which is owned by no base package.
 
 do_install() {
-    # Global environment — covers SSH sessions, cron, any manual npm calls
-    install -d ${D}/etc
-    echo "PUPPETEER_SKIP_DOWNLOAD=true" >> ${D}/etc/environment
+    # Login/SSH shells — covers manual npm calls, cron, su sessions
+    install -d ${D}/etc/profile.d
+    printf '# Prevent Puppeteer from downloading x86-only Chrome on ARM\nexport PUPPETEER_SKIP_DOWNLOAD=true\n' \
+        > ${D}/etc/profile.d/puppeteer.sh
 
     # Systemd drop-in — ensures the node-red service itself has the variable
     install -d ${D}/etc/systemd/system/node-red.service.d
@@ -22,6 +27,6 @@ EOF
 }
 
 FILES:${PN} = " \
-    /etc/environment \
+    /etc/profile.d/puppeteer.sh \
     /etc/systemd/system/node-red.service.d/puppeteer.conf \
 "

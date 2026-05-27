@@ -214,12 +214,12 @@ systemctl restart node-red
 ```
 hostnamectl set-hostname "TDN-EWSv2"
 chmod +x /usr/bin/procscan
-mv -v /home/root/app/app/SHA ~/.SHA
-npm --prefix /home/root/install install /home/root/app/tdn-ftp_v2-2.0.2.tgz
-rm -r /home/root/.node-red/
-mv /home/root/install/node_modules/tdn-ftp_v2/ /home/root/.node-red/
-cp -v /home/root/app/app/lib/ui-media/lib/ui/* /home/root/.node-red/node_modules/node-red-dashboard/dist/
-cp -v /home/root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
+mv -v /root/app/app/SHA ~/.SHA
+npm --prefix /root/install install /root/app/tdn-ftp_v2-2.0.2.tgz
+rm -r /root/.node-red/
+mv /root/install/node_modules/tdn-ftp_v2/ /root/.node-red/
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+cp -v /root/app/app/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js
 ```
 
 ### AP Configuration PRI
@@ -613,4 +613,81 @@ echo "e5c726c6079415926c7526b277bcf69b4ec1010c8c887322cca47ad2cb658c8b" > .SHA
 su -c "cp /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.bak && sed -i 's|^\(\s*\)let digestCreds = this\.credentials;|\1var digestUser = msg.digestUser;\n\1var digestPass = msg.digestPass;\n\1let digestCreds = {"user":digestUser,"password":digestPass};|' /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js" root
 cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
 su -c reboot root
+```
+
+---
+
+# TDN-WhatsApp (TDN-OS Scarthgap — CM4)
+## Yocto build
+```
+cd ~/Yocto/TDN-Scarthgap/
+source poky/oe-init-build-env build
+bitbake core-image-base
+```
+## Flash
+```
+cd build/tmp/deploy/images/raspberrypi4-64/
+sudo dd bs=4M if=core-image-base-raspberrypi4-64.wic of=/dev/sdX status=progress conv=fsync
+```
+## First-boot setup — run as root
+```
+hostnamectl set-hostname "TDN-WhatsApp"
+chmod +x /usr/bin/procscan
+mv -v /root/app/app/SHA ~/.SHA
+
+# Install Node-RED project (all deps bundled — no internet needed)
+npm --prefix /root/install install /root/app/tdn-ewsv3-3.0.1.tgz
+rm -rf /root/.node-red/
+mv /root/install/node_modules/tdn-ewsv3/ /root/.node-red/
+
+# Networking
+systemctl mask NetworkManager.service
+systemctl mask networking.service
+systemctl enable systemd-networkd.service
+systemctl enable systemd-resolved.service
+
+# Ethernet — local network (alarm panel, dashboard access)
+cat <<EOF | tee /etc/systemd/network/10-eth0.network
+[Match]
+Name=eth0
+
+[Network]
+DHCP=yes
+Address=192.168.0.20/24
+Gateway=192.168.0.1
+EOF
+
+# WiFi — WhatsApp internet access (replace SSID and PASSWORD)
+wpa_passphrase "SSID" "PASSWORD" > /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+chmod 600 /etc/wpa_supplicant/wpa_supplicant-wlan0.conf
+systemctl enable wpa_supplicant@wlan0
+
+cat <<EOF | tee /etc/systemd/network/20-wlan0.network
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+EOF
+
+# Node-RED finalise
+cd /root/.node-red/
+npm update
+vi settings.js
+echo "e5c726c6079415926c7526b277bcf69b4ec1010c8c887322cca47ad2cb658c8b" > .SHA
+su -c "cp /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.bak && sed -i 's|^\(\s*\)let digestCreds = this\.credentials;|\1var digestUser = msg.digestUser;\n\1var digestPass = msg.digestPass;\n\1let digestCreds = {\"user\":digestUser,\"password\":digestPass};|' /usr/lib/node_modules/node-red/node_modules/@node-red/nodes/core/network/21-httprequest.js" root
+cp -v /root/app/app/lib/ui-media/lib/ui/* /root/.node-red/node_modules/node-red-dashboard/dist/
+
+su -c reboot root
+```
+## WhatsApp session — scan QR after reboot
+```
+# Confirm Node-RED loaded the WhatsApp nodes
+journalctl -u node-red -f
+
+# Open in browser on any device on the local network
+http://192.168.0.20:1880/whatsapp-qr
+
+# Scan QR with WhatsApp on the registered phone
+# Session is saved to /var/lib/tdn-whatsapp — no rescan on reboot
 ```

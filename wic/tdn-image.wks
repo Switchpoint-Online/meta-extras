@@ -1,0 +1,12 @@
+# TDN-OS image layout
+# Partition 1: boot  (FAT32,  100 MB, read-only at runtime)
+# Partition 2: root  (ext4,   auto,   read-only at runtime via IMAGE_FEATURES)
+# Partition 3: data  (ext4,   512 MB, writable — Node-RED runtime, WhatsApp session, customer config)
+#
+# Activate with: WKS_FILE = "tdn-image.wks" in local.conf
+# Add fstab entry via ROOTFS_POSTPROCESS_COMMAND in local.conf:
+#   ROOTFS_POSTPROCESS_COMMAND += "echo 'LABEL=data /data ext4 defaults,noatime 0 2' >> ${IMAGE_ROOTFS}/etc/fstab; "
+
+part /boot --source bootimg-partition --ondisk mmcblk0 --fstype=vfat --label boot --active --align 4096 --size 100
+part /     --source rootfs            --ondisk mmcblk0 --fstype=ext4 --label root --align 4096 --extra-space 0
+part /data                            --ondisk mmcblk0 --fstype=ext4 --label data --align 4096 --size 512

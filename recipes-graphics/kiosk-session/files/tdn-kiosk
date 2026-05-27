@@ -1,1 +1,4 @@
-KIOSK_URL="http://127.0.0.1:1880"
+# Kiosk target — Node-RED dashboard.
+# uiPort=80 (settings.js) + ui.path="" → dashboard served at root /.
+# Port 80 on loopback — do NOT use port 1880 (Node-RED upstream default).
+KIOSK_URL="http://127.0.0.1/"

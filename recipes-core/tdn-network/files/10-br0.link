@@ -1,0 +1,9 @@
+# Prevent systemd-udev from generating a random MAC for the bridge.
+# With MACAddressPolicy=none the kernel assigns the bridge MAC from the
+# first enslaved interface (eth0), which has a stable OTP-burned address
+# on the CM4/CM5.  This gives a consistent MAC → consistent DHCP lease.
+[Match]
+OriginalName=br0
+
+[Link]
+MACAddressPolicy=none
