@@ -24,11 +24,7 @@ MemorySwapMax=0
 ExecStart=
 ExecStart=/usr/bin/node /usr/lib/node_modules/node-red/red.js
 Environment=HOME=/root
-Environment=PUPPETEER_SKIP_DOWNLOAD=true
 Environment=NODE_OPTIONS=--max-old-space-size=256
-# Chromium (Puppeteer/whatsapp-web.js) needs DISPLAY for the x11 Ozone backend.
-# Xorg is started by xserver-nodm on :0 before Node-RED reaches 'ready'.
-Environment=DISPLAY=:0
 EOF
 }
 
