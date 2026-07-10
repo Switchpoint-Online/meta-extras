@@ -9,6 +9,16 @@ xset s off   || true
 xset -dpms   || true
 xset s noblank || true
 
+# Fill the X root window with the psplash background colour so there is no
+# black flash between the framebuffer splash and the first Chromium paint.
+xsetroot -solid '#ecece1' || true
+
+# Dismiss the framebuffer psplash now that X owns the display.
+# psplash listens on a FIFO; send QUIT then stop the service so the framebuffer
+# is fully released before Chromium initialises the GPU.
+echo "QUIT" > /tmp/psplash_fifo 2>/dev/null || true
+systemctl stop psplash.service 2>/dev/null || true
+
 # Wait for Node-RED HTTP server to be ready before launching Chromium.
 # Node-RED runs on port 80 (uiPort=80 in settings.js).
 # Without this, Chromium shows a connection-refused error page and there is
